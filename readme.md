@@ -16,8 +16,8 @@ Files are currently split between different operating systems, but it might be a
 
 Remember to set symlinks pointing to this directory from your home folder (assuming the repo exists in the home folder):
 
-`ln -l ~/.settings/.gitconfig ~/.gitconfig`\
-`ln -l ~/.settings/.oh-my-zsh ~/.oh-my-zsh`
+`ln -s ~/.settings/.gitconfig ~/.gitconfig`\
+`ln -s ~/.settings/.oh-my-zsh ~/.oh-my-zsh`
 
 Also, you'll probably have to set the symlinks within `.oh-my-zsh` to point to the root `custom` directory:\
 `ln -s ~/.settings/custom/ ~/.settings/.oh-my-zsh/custom`
