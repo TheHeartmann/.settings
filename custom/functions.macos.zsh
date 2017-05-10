@@ -11,11 +11,6 @@ function word () {
     open -a Microsoft\ Word "$@";
 }
 
-function com() {
-    git add -A;
-    git commit;
-}
-
 function ddl () {
     defaults write com.apple.Dock autohide-delay -float "$@" && killall Dock
 }

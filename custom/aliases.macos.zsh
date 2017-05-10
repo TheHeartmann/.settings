@@ -14,7 +14,7 @@ alias word="open -a Microsoft\ Word"
 alias ubu="open -a VirtualBox ~/VirtualBox\ VMs/Ubu/Ubu.vbox"
 
 # misc
-alias zsh="code ~/.zshrc"
+# alias zsh="code ~/.zshrc"
 alias conf="code ~/.gitconfig"
 alias reindex="sudo mdutil -i on /" #rebuild spotlight index
 alias empty="sudo rm -rf ~/.Trash/*" #deletes all objects in trash can
@@ -28,6 +28,9 @@ alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017–2018"
 
 # Runestone navigation
 alias rune="cd ~/Dropbox/Runestone"
+
+# open settings folder in code
+alias zsh="code ~/.settings/custom/"
 
 ;; esac
 
