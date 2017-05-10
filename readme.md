@@ -8,7 +8,7 @@ The root contains `.gitconfig`, `.oh-my-zsh` and `custom`.
 
 ### `custom`
 
-A modular management system for shared and OS-specific aliases, functions, etc. Place new entries where they are the most appropriate.
+A modular management system for cushared and OS-specific aliases, functions, etc. Place new entries where they are the most appropriate.
 
 Files are currently split between different operating systems, but it might be a good idea to place all aliases in one file, and the check the `$OSTYPE` within and determine which command to run based on that.
 
@@ -18,7 +18,7 @@ Remember to set symlinks pointing to this directory from your home folder (assum
 
 `ln -s ~/.settings/.gitconfig ~/.gitconfig`\
 `ln -s ~/.settings/.oh-my-zsh ~/.oh-my-zsh`\
-`ln -s ~/.settings/.zshrc ~/.zshrc`\
+`ln -s ~/.settings/.zshrc ~/.zshrc`
 
 Also, you'll probably have to set the symlinks within `.oh-my-zsh` to point to the root `custom` directory:\
 `ln -s ~/.settings/custom/ ~/.settings/.oh-my-zsh/custom`
