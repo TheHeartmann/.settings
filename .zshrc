@@ -7,7 +7,7 @@ darwin*)
 export ZSH=/Users/Thomas/.oh-my-zsh
 ;;
 linux*)
-echo "YOU NEED TO SET ME, BRO"
+export ZSH=/home/thomas//.oh-my-zsh
 ;; esac
 
 #theming
