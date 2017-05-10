@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/Thomas/.gitignore_global
-	autocrlf = true
+	# autocrlf = true
   preloadindex = true
 	filemode = false
 
