@@ -8,5 +8,7 @@ alias open="xdg-open"
 
 alias @="xdg-open"
 
+alias get="sudo apt-get install"
+
 ;; esac
 
