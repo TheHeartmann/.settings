@@ -30,7 +30,3 @@ alias emoty="empty" #because I tend to misspell things :/
 alias settings="cd ~/.settings/"
 alias pd="pandoc"
 alias mellon="alohomora"
-
-function alohomora() {
-    sudo chmod -R ${2:-700} $1;
-}
