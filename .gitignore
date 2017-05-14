@@ -67,5 +67,5 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/macos,linux,windows
 
 # ignore folders we don't need anymore
-.oh-my-zsh/
-**/powerlevel9k/
+#.oh-my-zsh/
+#**/powerlevel9k/
