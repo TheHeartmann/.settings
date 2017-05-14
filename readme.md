@@ -1,27 +1,21 @@
 # Thomas' settings repository
 
-This is a repository for storing `.gitconfig` and Oh My Zsh-related settings for easier management across devices.
+This is a repository for storing `.gitconfig` and Oh My Zsh-related settings for easier management across multiple devices and operating systems.
 
 ## Structure
 
-The root contains `.gitconfig`, `.oh-my-zsh` and `custom`.
+The root contains `.gitconfig`, `.oh-my-zsh` and `custom`, as well as a couple scripts
 
-### `custom`
+### `custom/`
 
 A modular management system for shared and OS-specific aliases, functions, etc. Place new entries where they are the most appropriate.
 
 Files are currently split between different operating systems, but it might be a good idea to place all aliases in one file, and the check the `$OSTYPE` within and determine which command to run based on that.
 
-## Reminders to myself
+## Usage
 
-Remember to set symlinks pointing to this directory from your home folder (assuming the repo exists in the home folder):
+Running `.config.sh` should move all folders and set up symbolic links automatically, but assumes you have git and OMZ installed.
 
-`ln -s ~/.settings/.gitconfig ~/.gitconfig`\
-`ln -s ~/.settings/.oh-my-zsh ~/.oh-my-zsh`\
-`ln -s ~/.settings/.zshrc ~/.zshrc`
+Running `.initialize.sh` will install git, OMZ and Guake/iTerm2 (OS-dependent; assumes homebrew has already been installed for macOS), and then start the configuration process found in `.config.sh`
 
-Also, you'll probably have to set the symlinks within `.oh-my-zsh` to point to the root `custom` directory:\
-`ln -s ~/.settings/custom/ ~/.settings/.oh-my-zsh/custom`
-
-You might need to remove the actual `.oh-my-zsh/custom/` directory first, in which case:\
-`rm -r ~/.settings/.oh-my-zsh/custom`
+Both scripts will terminate themselves on success.
