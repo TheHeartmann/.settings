@@ -12,23 +12,29 @@ CUSTOM="custom/"
 ZSH=".oh-my.zsh/"
 THIS=".config.sh"
 SETZSH=$SETTINGS$ZSH
-declare -a items=(".zshrc" ".oh-my-zsh" ".gitconfig")
+declare -a itemsToDelete=(".zshrc" ".gitconfig")
 
 # rm .zshrc, .oh-my-zsh, .gitconfig
 # create symlinks
-for i in ${items[@]}
+for i in ${itemsToDelete[@]}
 do
-    echo "deleting"
     rm -rfv $ROOT$i
-
-    echo "creating symlink for"
     ln -sv $SETTINGS$i $ROOT$i
+    echo "$i deleted and symlinked"
 done
 
+
+# mv .oh-my-zsh-folder to settings and make symlink
+mv -f $ROOT$ZSH $SETTINGS
+ln -sv $SETZSH $ROOT$ZSH
+
+echo ".oh-my-zsh dir moved and symlinked"
 
 # symlink to our own repo's custom dir
 rm -rfv $SETZSH$CUSTOM
 ln -s $SETTINGS$CUSTOM $SETZSH$CUSTOM
+
+echo "successfully linked custom dirs"
 
 # install powerlevel9k now that we have everything set up
 echo "installing powerlevel9k …"
@@ -36,7 +42,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git $HOME/.oh-my-zsh/custom/t
 
 echo "powerlevel9k installed; fetching powerline fonts"
 # install to desktop
-git clone https://github.com/gabrielelana/awesome-terminal-fonts.git "$HOME/Desktop"
+git clone https://github.com/gabrielelana/awesome-terminal-fonts.git $HOME/Desktop/awesome-terminal-fonts/
 
 echo "got fonts"
 echo "see https://github.com/gabrielelana/awesome-terminal-fonts for installation instructions"

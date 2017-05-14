@@ -27,8 +27,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo ".oh-my-zsh installed"
 
 # clone repo
-echo "sloning settings repo …"
-git clone https://github.com/TheHeartmann/.settings.git $HOME
+echo "cloning settings repo …"
+git clone https://github.com/TheHeartmann/.settings.git "$HOME/.settings"
 echo "got settings"
 
 echo "finished installation of git and oh-my-zsh"
@@ -42,6 +42,7 @@ case $OS in
     ;;
     linux*)
     # install guake
+    sudo apt-get install python-dbus
     sudo apt-get install guake
     cp /usr/share/applications/guake.desktop /etc/xdg/autostart/
     ;;
