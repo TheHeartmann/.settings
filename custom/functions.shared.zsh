@@ -1,15 +1,14 @@
 # functions for sleeping etc
 function rest() { TIME=${1:-now}; sudo shutdown -s $TIME; }
-function reboot() { TIME=${1:-now}; sudo shutdown -r $TIME; }
 
 function kill() {
     TIME=${1:-now}
     case $OSTYPE in
         darwin*)
-        sudo shutdown -h $TIME;
+        halt
         ;;
         linux*)
-        sudo shutdown $TIME;
+        shutdown $TIME
         ;;
     esac
 }
