@@ -23,6 +23,9 @@ alias yev="ya add --dev"
 #standard JS
 alias fix="standard --fix"
 
+# python
+alias py3="/usr/local/bin/python3.6"
+
 #misc
 alias lsa="ls -a"
 alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a VS project
