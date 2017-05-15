@@ -29,7 +29,6 @@ alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a 
 alias emoty="empty" #because I tend to misspell things :/
 alias pd="pandoc"
 alias mellon="alohomora" # speak friend and endter
-alias python="python3" # to use python 3 as default
 
 #settings etc
 alias settings="cd ~/.settings/"
