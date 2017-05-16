@@ -148,5 +148,5 @@
   # $1: the branch to update to
   # $2: the remote to update from (optional, defaults to origin)
   update = "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
-[credential]
-	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+# [credential]
+	# helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
