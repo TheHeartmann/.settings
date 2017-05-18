@@ -22,6 +22,7 @@ alias yev="ya add --dev"
 
 #standard JS
 alias fix="standard --fix"
+alias std="standard --verbose | snazzy"
 
 # python
 alias py3="/usr/local/bin/python3.6"
