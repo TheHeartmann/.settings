@@ -22,9 +22,12 @@ alias emoty="empty" #because I tend to misspell things :/
 alias jbs="cd ~/JetBrainsSettings/" #for local version of JetBrainsSettings repo
 
 # Westerdals navigation
-alias w1="cd ~/MEGA/Westerdals/Spillprogrammering/2015–2016"
-alias w2="cd ~/MEGA/Westerdals/Spillprogrammering/2016–2017"
-alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017–2018"
+alias w1="cd ~/MEGA/Westerdals/Spillprogrammering/2015–2016 && ls -1d */"
+alias w2="cd ~/MEGA/Westerdals/Spillprogrammering/2016–2017 && ls -1d */"
+alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017–2018 && ls -1d */"
+
+# Navigate to GARICS folder
+alias GARICS="cd ~/Documents/Game\ AI/GeneticAlgorithmTests/ && ls -1d */"
 
 # Runestone navigation
 alias rune="cd ~/Dropbox/Runestone"

@@ -10,13 +10,15 @@ OS=$OSTYPE
 SETTINGS=$HOME/.settings
 
 # install git
-echo "installing git"
+echo "installing git (and curl and zsh)"
 case $OS in
     darwin*)
     brew install git # assuming we have homebrew. Apparently, just "git" will also work
     ;;
     linux*)
     sudo apt-get install git-all
+    sudo apt-get install curl
+    sudo apt install zsh
     ;;
 esac
 echo "git succesfully installed"

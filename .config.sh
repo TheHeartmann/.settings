@@ -6,33 +6,32 @@
 # make the script exit if any of the commands fail
 set -e
 
-ROOT="$HOME/"
-SETTINGS="$ROOT.settings/"
-CUSTOM="custom/"
-ZSH=".oh-my.zsh/"
+SETTINGS="$HOME/.settings"
+CUSTOM="custom"
+ZSH=".oh-my.zsh"
 THIS=".config.sh"
-SETZSH=$SETTINGS$ZSH
+SETZSH="$SETTINGS/$ZSH"
 declare -a itemsToDelete=(".zshrc" ".gitconfig")
 
 # rm .zshrc, .oh-my-zsh, .gitconfig
 # create symlinks
 for i in ${itemsToDelete[@]}
 do
-    rm -rfv $ROOT$i
-    ln -sv $SETTINGS$i $ROOT$i
+    rm -rfv "$HOME/$i"
+    ln -sv "$SETTINGS/$i" "$HOME/$i"
     echo "$i deleted and symlinked"
 done
 
 
 # mv .oh-my-zsh-folder to settings and make symlink
-mv -f $ROOT$ZSH $SETTINGS
-ln -sv $SETZSH $ROOT$ZSH
+mv -f "$HOME/$ZSH" $SETTINGS
+ln -sv $SETZSH "$HOME/$ZSH"
 
 echo ".oh-my-zsh dir moved and symlinked"
 
 # symlink to our own repo's custom dir
-rm -rfv $SETZSH$CUSTOM
-ln -s $SETTINGS$CUSTOM $SETZSH$CUSTOM
+rm -rfv "$SETZSH/$CUSTOM"
+ln -s "$SETTINGS/$CUSTOM" "$SETZSH/$CUSTOM"
 
 echo "successfully linked custom dirs"
 
@@ -61,11 +60,11 @@ esac
 echo "configuration complete. this script will now be deleted"
 
 # delete setup file
-rm -v $SETTINGS$THIS
+rm -v "$SETTINGS/$THIS"
 
 echo "config script deleted."
 
 # delete initialization script (if it exists)
-rm -v "$SETTINGS.initialize.sh"
+rm -v "$SETTINGS/.initialize.sh"
 
 echo "deleted initialization script"
