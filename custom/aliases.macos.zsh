@@ -36,7 +36,7 @@ alias rune="cd ~/Dropbox/Runestone"
 alias zsh="code ~/.settings/custom/"
 
 # general navigation
-alias desktop="cd ~/Desktop/ && ls -1"
+alias desk="cd ~/Desktop/ && ls -1"
 
 ;; esac
 
