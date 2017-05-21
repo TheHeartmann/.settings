@@ -30,7 +30,7 @@ ln -sv $SETZSH "$HOME/$ZSH"
 echo ".oh-my-zsh dir moved and symlinked"
 
 # symlink to our own repo's custom dir
-rm -rfv "$SETZSH/$CUSTOM"
+rm -rfv "$SETZSH/$CUSTOM/"
 ln -s "$SETTINGS/$CUSTOM" "$SETZSH/$CUSTOM"
 
 echo "successfully linked custom dirs"
