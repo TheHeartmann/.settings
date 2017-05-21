@@ -35,6 +35,7 @@ alias pd="pandoc"
 alias mellon="alohomora" # speak friend and endter
 
 # settings etc
+alias zsh="code ~/.settings/"
 alias settings="cd ~/.settings/"
 alias sc="cd ~/.settings/custom && ls"
 

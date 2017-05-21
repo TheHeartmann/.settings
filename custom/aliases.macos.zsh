@@ -32,11 +32,10 @@ alias GARICS="cd ~/Documents/Game\ AI/GeneticAlgorithmTests/ && ls -1d */"
 # Runestone navigation
 alias rune="cd ~/Dropbox/Runestone"
 
-# open settings folder in code
-alias zsh="code ~/.settings/custom/"
-
 # general navigation
 alias desk="cd ~/Desktop/ && ls -1"
+
+alias @="open"
 
 ;; esac
 
