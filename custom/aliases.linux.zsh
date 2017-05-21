@@ -12,15 +12,15 @@ alias get="sudo apt-get install"
 
 # Windows subsystem for linux
 
-export $WINHOME="/mnt/c/Users/Thomas"
+# export $WINHOME="/mnt/c/Users/Thomas/"
 
-alias winhome="cd $WINHOME && l"
+alias winhome="cd /mnt/c/Users/Thomas/ && l"
 
-alias windocs="cd $WINHOME/Documents && l"
+alias windocs="cd /mnt/c/Users/Thomas/Documents && l"
 
-alias windown="cd $WINHOME/Downloads && l"
+alias windown="cd /mnt/c/Users/Thomas/Downloads && l"
 
-alias windesk="cd $WINHOME/Desktop && l"
+alias windesk="cd /mnt/c/Users/Thomas/Desktop && l"
 
 ;; esac
 
