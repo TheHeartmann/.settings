@@ -55,14 +55,14 @@ echo "succesfully installed terminal replacement"
 # make sure we have permission to run the next script:
 echo "unlocking other script and starting configuration"
 
-sudo chmod -R 700 $SETTINGS/.config.sh
+sudo chmod -R 777 $SETTINGS
 
 $SETTINGS/.config.sh
 # run other script
 
 # delete this script
-echo "this script has run its course and will now be deleted"
+# echo "this script has run its course and will now be deleted"
 
-rm -v ./initialize.sh
+# rm -v ./initialize.sh
 
-echo "installation completed"
+echo "\n\n\ninstallation completed\n\n\n"

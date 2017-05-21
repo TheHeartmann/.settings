@@ -24,14 +24,14 @@ done
 
 
 # mv .oh-my-zsh-folder to settings and make symlink
-mv -f "$HOME/$ZSH" $SETTINGS
-ln -sv $SETZSH "$HOME/$ZSH"
+sudo mv -f "$HOME/$ZSH" "$SETTINGS/"
+sudo ln -s "$SETZSH" "$HOME/$ZSH"
 
 echo ".oh-my-zsh dir moved and symlinked"
 
 # symlink to our own repo's custom dir
-rm -rfv "$SETZSH/$CUSTOM/"
-ln -s "$SETTINGS/$CUSTOM" "$SETZSH/$CUSTOM"
+sudo rm -rf "$SETZSH/$CUSTOM/"
+sudo ln -s "$SETTINGS/$CUSTOM" "$SETZSH/$CUSTOM"
 
 echo "successfully linked custom dirs"
 
@@ -57,14 +57,14 @@ case $OSTYPE in
     ;;
 esac
 
-echo "configuration complete. this script will now be deleted"
+echo "\n\n\nconfiguration complete.\n\n\n"
 
 # delete setup file
-rm -v "$SETTINGS/$THIS"
+# rm -v "$SETTINGS/$THIS"
 
-echo "config script deleted."
+# echo "config script deleted."
 
 # delete initialization script (if it exists)
-rm -v "$SETTINGS/.initialize.sh"
+# rm -v "$SETTINGS/.initialize.sh"
 
-echo "deleted initialization script"
+# echo "deleted initialization script"
