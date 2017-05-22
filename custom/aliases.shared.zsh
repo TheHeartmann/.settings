@@ -14,6 +14,7 @@ alias update="git update"
 alias caa="git commit -a --amend -C HEAD"
 
 # yarn
+alias ya="yarn"
 alias yas="yarn start"
 alias yad="yarn add"
 alias gad="yarn global add"
@@ -36,7 +37,7 @@ alias mellon="alohomora" # speak friend and endter
 
 # settings etc
 alias zsh="code ~/.settings/"
-alias settings="cd ~/.settings/"
+alias sets="cd ~/.settings/ && l"
 alias sc="cd ~/.settings/custom && ls"
 
 # navigation
