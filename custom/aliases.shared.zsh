@@ -41,4 +41,6 @@ alias sets="cd ~/.settings/ && l"
 alias sc="cd ~/.settings/custom && ls"
 
 # navigation
-desk="cd $HOME/Desktop"
+desk="cd $HOME/Desktop && l"
+docs="cd ~/Documents && l"
+down="cd ~/Downloads && l"
