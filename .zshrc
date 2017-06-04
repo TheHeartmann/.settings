@@ -12,6 +12,7 @@ export ZSH=/Users/Thomas/.oh-my-zsh
 ;;
 linux*)
 export ZSH=/home/thomas//.oh-my-zsh
+export TERM="xterm-256color"
 ;; esac
 
 #theming
@@ -108,3 +109,6 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# added by travis gem
+[ -f /home/thomas/.travis/travis.sh ] && source /home/thomas/.travis/travis.sh

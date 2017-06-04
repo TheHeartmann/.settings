@@ -10,7 +10,7 @@ alias @="xdg-open"
 
 alias get="sudo apt-get install"
 
-alias code="code-insiders"
+alias snake="cd ~/Documents/snake-plusplus"
 
 # Windows subsystem for linux
 
