@@ -44,3 +44,5 @@ alias sc="cd ~/.settings/custom && ls"
 alias desk="cd $HOME/Desktop && l"
 alias docs="cd ~/Documents && l"
 alias down="cd ~/Downloads && l"
+
+alias droid="adb devices"

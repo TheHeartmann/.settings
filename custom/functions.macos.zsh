@@ -19,5 +19,27 @@ function ddl () {
 function show() { defaults write com.apple.Finder AppleShowAllFiles YES ; killall Finder ; }
 function hide() { defaults write com.apple.Finder AppleShowAllFiles NO ; killall Finder ; }
 
+function wifi()
+{
+    while getopts ":qrsyn" opt;
+    do
+        case $opt in
+            q|n)
+            networksetup -setairportpower en0 off;
+            echo "wifi turned off"
+            ;;
+            s|y)
+            networksetup -setairportpower en0 on
+            echo "wifi turned on"
+            ;;
+            r)
+            wifi -qs
+            ;;
+            \?)
+            echo "Invalid argument: -$OPTARG"
+        esac
+    done
+}
+
 ;; esac
 
