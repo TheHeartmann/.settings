@@ -41,5 +41,33 @@ function wifi()
     done
 }
 
+function bt()
+{
+    if [ $# -eq 0 ];
+        then
+            bt -h
+    else
+        while getopts ":qrsyn" opt;
+        do
+            case $opt in
+                q|n)
+                blueutil off
+                echo "Bluetooth turned off"
+                ;;
+                s|y)
+                blueutil on
+                echo "Bluetooth turned on"
+                ;;
+                r)
+                bt -qs
+                ;;
+                \?)
+                echo "Bluetooth:"
+                blueutil status
+            esac
+        done
+    fi
+}
+
 ;; esac
 
