@@ -21,24 +21,36 @@ function hide() { defaults write com.apple.Finder AppleShowAllFiles NO ; killall
 
 function wifi()
 {
-    while getopts ":qrsyn" opt;
-    do
-        case $opt in
-            q|n)
-            networksetup -setairportpower en0 off;
-            echo "wifi turned off"
-            ;;
-            s|y)
-            networksetup -setairportpower en0 on
-            echo "wifi turned on"
-            ;;
-            r)
-            wifi -qs
-            ;;
-            \?)
-            echo "Invalid argument: -$OPTARG"
-        esac
-    done
+    if [ $# -eq 0 ];
+        then
+            wifi -w
+    else
+        while getopts ":qrsynw" opt;
+            do
+                case $opt in
+                    q|n)
+                    networksetup -setairportpower en0 off;
+                    echo "wifi turned off"
+                    ;;
+                    s|y)
+                    networksetup -setairportpower en0 on
+                    echo "wifi turned on"
+                    ;;
+                    r)
+                    wifi -qs
+                    ;;
+                    w|\?)
+                    NETWORK=$(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}')
+                    echo "Current wifi status:"
+                    if [ -z "$NETWORK" ];
+                        then
+                            echo "Not connected."
+                        else
+                            echo "Connected to $NETWORK."
+                    fi
+                esac
+            done
+    fi
 }
 
 function bt()
@@ -48,24 +60,24 @@ function bt()
             bt -h
     else
         while getopts ":qrsyn" opt;
-        do
-            case $opt in
-                q|n)
-                blueutil off
-                echo "Bluetooth turned off"
-                ;;
-                s|y)
-                blueutil on
-                echo "Bluetooth turned on"
-                ;;
-                r)
-                bt -qs
-                ;;
-                \?)
-                echo "Bluetooth:"
-                blueutil status
-            esac
-        done
+            do
+                case $opt in
+                    q|n)
+                    blueutil off
+                    echo "Bluetooth turned off"
+                    ;;
+                    s|y)
+                    blueutil on
+                    echo "Bluetooth turned on"
+                    ;;
+                    r)
+                    bt -qs
+                    ;;
+                    \?)
+                    echo "Bluetooth:"
+                    blueutil status
+                esac
+            done
     fi
 }
 
