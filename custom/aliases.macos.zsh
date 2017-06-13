@@ -30,7 +30,7 @@ alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017–2018 && ls -1d */"
 alias GARICS="cd ~/Documents/Game\ AI/GeneticAlgorithmTests/ && ls -1d */"
 
 # Runestone navigation
-alias rune="cd ~/Dropbox/Runestone"
+alias rune="cd ~/Dropbox/Runestone && ls -1d */"
 
 # general navigation
 alias desk="cd ~/Desktop/ && ls -1"
