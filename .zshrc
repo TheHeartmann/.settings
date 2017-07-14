@@ -21,7 +21,7 @@ POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 #left prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status todo os_icon todo dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(todo os_icon todo dir vcs status)
 
 #right prompt
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time background_jobs ram battery)

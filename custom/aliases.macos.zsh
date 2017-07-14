@@ -21,6 +21,8 @@ alias empty="sudo rm -rf ~/.Trash/*" #deletes all objects in trash can
 alias emoty="empty" #because I tend to misspell things :/
 alias jbs="cd ~/JetBrainsSettings/" #for local version of JetBrainsSettings repo
 
+alias vi="vim" # to get the good kind of vim
+
 # Westerdals navigation
 alias w1="cd ~/MEGA/Westerdals/Spillprogrammering/2015–2016 && ls -1d */"
 alias w2="cd ~/MEGA/Westerdals/Spillprogrammering/2016–2017 && ls -1d */"

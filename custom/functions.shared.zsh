@@ -21,3 +21,14 @@ function com() {
     git add -A;
     git commit;
 }
+
+
+function google()
+{
+    if [ $# -eq 0 ];
+        then
+            open "https://www.google.com/"
+    else
+        open "https://www.google.com/search?q=$@"
+    fi
+}

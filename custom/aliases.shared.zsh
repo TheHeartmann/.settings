@@ -27,6 +27,7 @@ alias std="standard --verbose | snazzy"
 
 # python
 alias py3="/usr/local/bin/python3.6"
+alias py="/usr/local/bin/python3.6"
 
 # misc
 alias lsa="ls -a"
@@ -34,6 +35,7 @@ alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a 
 alias emoty="empty" #because I tend to misspell things :/
 alias pd="pandoc"
 alias mellon="alohomora" # speak friend and endter
+alias go="google"
 
 # settings etc
 alias zsh="code ~/.settings/"

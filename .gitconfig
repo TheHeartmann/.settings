@@ -7,6 +7,9 @@
 [push]
   default = upstream
 
+[pull]
+  rebase = preserve
+
 [fetch]
   prune = true
 
@@ -15,16 +18,14 @@
 	autoupdate = true
 
 [merge]
-  tool = p4merge
-  #tool = extMerge
+  tool = extMerge
 
 [mergetool "extMerge"]
   cmd = extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
 
 [diff]
-  external = extDiff
-  tool = p4merge
+ external = extDiff
 
 [difftool]
   prompt = false
@@ -130,7 +131,7 @@
   statys = status
   #utility
   fix = "!f(){ standard --fix; git gud;}; f"
-  fs = "!f(){ git fetch; git st;}; f"
+  fs = "!f(){ git fetch --prune; git st;}; f"
   gud = "!f(){ git add . ; git commit; }; f"
   nb = "!f(){ git checkout -b \"$1\"; git push -u origin \"$1\"; }; f" #new branch locally and at origin
   del = "!f(){ git push origin --delete "$1"; git branch -D "$1"; }; f"
@@ -147,6 +148,8 @@
   # params
   # $1: the branch to update to
   # $2: the remote to update from (optional, defaults to origin)
-  update = "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
+  # update = "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
+  update = "!f() { git fetch "@{u}" --prune; git merge --ff-only "@{u}" || git rebase --preserve-merges "@{u}"; }; f"
+  tidy = "rebase -i "@{u}""
 # [credential]
 	# helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring

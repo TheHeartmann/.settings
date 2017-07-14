@@ -2,8 +2,11 @@ case $OSTYPE in darwin*)
 
 #functions for multi-commands
 function code () {
-    touch "$@";
-    open -a Visual\ Studio\ Code\ -\ Insiders "$@";
+    if [ $# -gt 0 ];
+        then
+            touch "$@";
+    fi
+        open -a Visual\ Studio\ Code\ -\ Insiders "$@";
 }
 
 function word () {

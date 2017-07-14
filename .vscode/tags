@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+PIPE	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^from subprocess import Popen, PIPE, check_output$/;"	kind:namespace	line:7
+Popen	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^from subprocess import Popen, PIPE, check_output$/;"	kind:namespace	line:7
+ahead	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^                        ahead = int(div[len('ahead '):].strip())$/;"	kind:variable	line:62
+behind	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^                        behind = int(div[len('behind '):].strip())$/;"	kind:variable	line:64
+branch	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^            branch = get_tagname_or_hash()$/;"	kind:variable	line:47
+branch	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^            branch = st[2].split(' ')[-1]$/;"	kind:variable	line:45
+branch	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^            branch = st[2].strip()$/;"	kind:variable	line:49
+check_output	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^from subprocess import Popen, PIPE, check_output$/;"	kind:namespace	line:7
+divergence	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^                divergence = ' '.join(rest.split(' ')[1:])$/;"	kind:variable	line:58
+divergence	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^                divergence = divergence.lstrip('[').rstrip(']')$/;"	kind:variable	line:59
+get_tagname_or_hash	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^def get_tagname_or_hash():$/;"	kind:function	line:10
+gitstatus.py	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	1;"	kind:file	line:1
+out	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^out = ' '.join([$/;"	kind:variable	line:75
+po	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^po = Popen(['git', 'status', '--porcelain', '--branch'], stdout=PIPE, stderr=PIPE)$/;"	kind:variable	line:33
+print_function	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^from __future__ import print_function$/;"	kind:namespace	line:2
+re	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^import re$/;"	kind:namespace	line:5
+shlex	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^import shlex$/;"	kind:namespace	line:6
+status	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^status = [(line[0], line[1], line[2:]) for line in stdout.decode('utf-8').splitlines()]$/;"	kind:variable	line:41
+sys	../.oh-my-zsh/plugins/git-prompt/gitstatus.py	/^import sys$/;"	kind:namespace	line:4
