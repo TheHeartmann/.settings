@@ -5,7 +5,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 15,
 
     // font family with optional fallbacks
     fontFamily: 'Monoid, Fira Code, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -135,11 +135,13 @@ module.exports = {
 
     tabIcons: {
       mapColors: {
-        shell: '#FFCC00',
-        bash: '#FFCC00',
+        shell: '#A58D12',
+        bash: '#A58D12',
         fish: '#D8494F',
         zsh: '#C5DB00',
-        git: '#F44F32'
+        git: '#F44F32',
+        vim: '#159739'
+
       }
     },
 

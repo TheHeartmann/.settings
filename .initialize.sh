@@ -40,6 +40,7 @@ case $OS in
     darwin*)
     # install iTerm2
     brew cask install iterm2
+    brew cask install hyper
     curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
     ;;
     linux*)
