@@ -5,10 +5,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 20,
 
     // font family with optional fallbacks
-    fontFamily: 'Monoid, Fira Code, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Droid Sans mono dotted for powerline, Fira mono for powerline, Monoid, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: '#CE6BDB',
@@ -162,7 +162,6 @@ module.exports = {
     "hyper-keymap",
     "hypercwd",
     "hyperterm-cursor",
-    "hyper-spotify",
     "hyperterm-final-say",
     "hyperterm-tab-icons",
     "hyperterm-overlay"
