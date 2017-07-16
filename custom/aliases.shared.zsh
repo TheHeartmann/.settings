@@ -9,6 +9,9 @@ alias gf="git fix"
 alias stash="git stash"
 alias merge="git merge"
 alias update="git update"
+alias newrepo='github_createrepo $1 $2'
+alias delrepo='github_deleterepo $1 $2'
+alias listrepos='github_listrepos $1'
 
 #take all uncommitted and un-staged changes currently in the working directory and add them to the previous commit, amending it before pushing the change up
 alias caa="git commit -a --amend -C HEAD"
