@@ -78,7 +78,7 @@ module.exports = {
       backgroundOpacity: '.9',
 
       // Set the accent color for the current active tab
-      accentColor: '#CE6BDB',
+      accentColor: '#ffcc00',
 
       // Mac Only. Need restart. Enable the vibrance and blurred background
       // OPTIONS: 'dark', 'ultra-dark', 'bright'
@@ -91,7 +91,7 @@ module.exports = {
     // make sure to use a full path if the binary name doesn't work
     // (e.g `C:\\Windows\\System32\\bash.exe` instead of just `bash.exe`)
     // if you're using powershell, make sure to remove the `--login` below
-    shell: '/bin/zsh',
+    shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -148,6 +148,55 @@ module.exports = {
     keymap: {
       'CmdOrCtrl+Shift+Tab': 'prev-tab',
       'CmdOrCtrl+Tab': 'next-tab',
+    },
+
+    hyperline: {
+      color: 'black',
+      plugins: [
+        {
+          name: 'hostname',
+          options: {
+            color: 'lightBlue'
+          }
+        },
+        {
+          name: 'memory',
+          options: {
+            color: 'white'
+          }
+        },
+        {
+          name: 'uptime',
+          options: {
+            color: 'lightYellow'
+          }
+        },
+        {
+          name: 'cpu',
+          options: {
+            colors: {
+              high: 'lightRed',
+              moderate: 'lightYellow',
+              low: 'lightGreen'
+            }
+          }
+        },
+        {
+          name: 'network',
+          options: {
+            color: 'lightCyan'
+          }
+        },
+        {
+          name: 'battery',
+          options: {
+            colors: {
+              fine: 'lightGreen',
+              critical: 'lightRed'
+            }
+          }
+        }
+      ]
     }
   },
 
@@ -158,13 +207,14 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-material-theme',
     "hyper-keymap",
     "hypercwd",
     "hyperterm-cursor",
-    // "hyperterm-final-say",
     "hyperterm-tab-icons",
-    "hyperterm-overlay"
+    "hyperterm-overlay",
+    "hyper-one-dark",
+    "hyperline",
+    "hyperminimal"
   ],
 
   // in development, you can create a directory under
