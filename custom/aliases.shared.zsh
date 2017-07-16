@@ -27,18 +27,22 @@ alias std="standard --verbose | snazzy"
 
 # python
 alias py3="/usr/local/bin/python3.6"
-alias py="/usr/local/bin/python3.6"
+alias py="python"
 
 # misc
-alias lsa="ls -a"
+alias lsa="ls -lah"
 alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a VS project
 alias emoty="empty" #because I tend to misspell things :/
 alias pd="pandoc"
 alias mellon="alohomora" # speak friend and endter
 alias go="google"
 
+# dirs
+alias md='mkdir -p'
+alias rd=rmdir
+
 # settings etc
-alias zsh="code ~/.settings/"
+alias conf="code ~/.settings/"
 alias sets="cd ~/.settings/ && l"
 alias sc="cd ~/.settings/custom && ls"
 

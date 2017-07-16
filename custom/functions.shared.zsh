@@ -32,3 +32,8 @@ function google()
         open "https://www.google.com/search?q=$@"
     fi
 }
+
+function take() {
+  mkdir -p $1
+  cd $1
+}

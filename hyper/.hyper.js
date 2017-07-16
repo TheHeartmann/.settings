@@ -5,7 +5,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 20,
+    fontSize: 18,
 
     // font family with optional fallbacks
     fontFamily: 'Droid Sans mono dotted for powerline, Fira mono for powerline, Monoid, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -32,7 +32,7 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    // termCSS: '*{ font-size: 16px; }',
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
@@ -75,7 +75,7 @@ module.exports = {
 
       // Set the rgba() app background opacity, useful when enableVibrance is true
       // OPTIONS: From 0.1 to 1
-      backgroundOpacity: '.1',
+      backgroundOpacity: '.9',
 
       // Set the accent color for the current active tab
       accentColor: '#CE6BDB',
@@ -162,7 +162,7 @@ module.exports = {
     "hyper-keymap",
     "hypercwd",
     "hyperterm-cursor",
-    "hyperterm-final-say",
+    // "hyperterm-final-say",
     "hyperterm-tab-icons",
     "hyperterm-overlay"
   ],

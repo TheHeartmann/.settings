@@ -114,3 +114,5 @@ source $ZSH/oh-my-zsh.sh
 
 # added by travis gem
 [ -f /home/thomas/.travis/travis.sh ] && source /home/thomas/.travis/travis.sh
+
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

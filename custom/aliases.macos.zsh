@@ -15,7 +15,7 @@ alias ubu="open -a VirtualBox ~/VirtualBox\ VMs/Ubu/Ubu.vbox"
 
 # misc
 # alias zsh="code ~/.zshrc"
-alias conf="code ~/.gitconfig"
+alias gconf="code ~/.gitconfig"
 alias reindex="sudo mdutil -i on /" #rebuild spotlight index
 alias empty="sudo rm -rf ~/.Trash/*" #deletes all objects in trash can
 alias emoty="empty" #because I tend to misspell things :/
