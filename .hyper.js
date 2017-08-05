@@ -1,4 +1,4 @@
-// Future versions of Hyper may add additional config options,
+  // Future versions of Hyper may add additional config options,
 // which will not automatically be merged into this file.
 // See https://hyper.is#cfg for all currently supported options.
 
@@ -8,7 +8,7 @@ module.exports = {
     fontSize: 18,
 
     // font family with optional fallbacks
-    fontFamily: 'Droid Sans mono dotted for powerline, Fira mono for powerline, Monoid, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Roboto Mono, DejaVu Sans Code, FiraCode-Retina, Monoid, Menlo, Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: '#CE6BDB',
@@ -91,7 +91,7 @@ module.exports = {
     // make sure to use a full path if the binary name doesn't work
     // (e.g `C:\\Windows\\System32\\bash.exe` instead of just `bash.exe`)
     // if you're using powershell, make sure to remove the `--login` below
-    shell: '',
+    shell: '/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -122,7 +122,7 @@ module.exports = {
       hasShadow: true,
       hideDock: true,
       hideOnBlur: false,
-      hotkeys: ['Option+Space'],
+      hotkeys: ['Alt+Space'],
       position: 'right',
       primaryDisplay: false,
       resizable: true,
@@ -209,12 +209,11 @@ module.exports = {
   plugins: [
     "hyper-keymap",
     "hypercwd",
-    "hyperterm-cursor",
-    "hyperterm-tab-icons",
     "hyperterm-overlay",
     "hyper-one-dark",
     "hyperline",
-    "hyperminimal"
+    "hyperminimal",
+    "hyper-tab-icons"
   ],
 
   // in development, you can create a directory under

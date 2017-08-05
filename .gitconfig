@@ -133,11 +133,12 @@
   fix = "!f(){ standard --fix; git gud;}; f"
   fs = "!f(){ git fetch --prune; git st;}; f"
   gud = "!f(){ git add . ; git commit; }; f"
-  nb = "!f(){ git checkout -b \"$1\"; git push -u origin \"$1\"; }; f" #new branch locally and at origin
+  nb = "checkout -b $1";" #new branch locally and at origin
+  pushup = "push -u origin HEAD;" #push branch to origin
   del = "!f(){ git push origin --delete "$1"; git branch -D "$1"; }; f"
   gf = "!f(){ git add . ; git commit -m \"${1-No message supplied}\"; git push; }; f" # gotta go fast! Identical to 'fast'
   fast = "!f(){ git add . ; git commit -m \"${1-No message supplied}\"; git push; }; f" #WARNING: can be dangerous
-  rekt = "!f() { git reset --hard ${1-\"@{u}\"}; }; f"
+  rekt = "!f() { git reset --hard ${1-\"@{0}\"}; }; f" # CHANGE: revert to the last commit rather than to upstream
   sync = "!f(){ git add . ; git commit \"${1-No message supplied}\"; git pull; git push; }; f"
 
   #housekeeping
@@ -148,8 +149,12 @@
   # params
   # $1: the branch to update to
   # $2: the remote to update from (optional, defaults to origin)
-  # update = "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
+  # update  "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
   update = "!f() { git fetch "@{u}" --prune; git merge --ff-only "@{u}" || git rebase --preserve-merges "@{u}"; }; f"
   tidy = "rebase -i "@{u}""
+
+  rename = git branch -m
+
 # [credential]
-	# helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  # helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+ diffc = "diff --cached"

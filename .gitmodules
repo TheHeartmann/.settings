@@ -1,0 +1,3 @@
+[submodule "private-settings"]
+	path = custom/private-settings
+	url = https://github.com/TheHeartmann/private-settings.git

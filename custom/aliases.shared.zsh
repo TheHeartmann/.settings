@@ -7,11 +7,16 @@ alias oush="git push"
 alias pull="git pull"
 alias gf="git fix"
 alias stash="git stash"
-alias merge="git merge"
+alias merge="git merge --no-ff"
 alias update="git update"
-alias newrepo='github_createrepo $1 $2'
+
+# name of repo, private, user
+alias newrepo='github_create_and_clone $1 $2 $3'
+alias newrepoonline='github_createrepo $1 $2 $3'
+# name of repo, user
 alias delrepo='github_deleterepo $1 $2'
-alias listrepos='github_listrepos $1'
+# user, token
+alias repos='github_listrepos $1 $2'
 
 #take all uncommitted and un-staged changes currently in the working directory and add them to the previous commit, amending it before pushing the change up
 alias caa="git commit -a --amend -C HEAD"
@@ -37,12 +42,12 @@ alias lsa="ls -lah"
 alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a VS project
 alias emoty="empty" #because I tend to misspell things :/
 alias pd="pandoc"
-alias mellon="alohomora" # speak friend and endter
+alias mellon="alohomora" # speak friend and enter
 alias go="google"
 
 # dirs
 alias md='mkdir -p'
-alias rd=rmdir
+alias rd="rmdir"
 
 # settings etc
 alias conf="code ~/.settings/"
