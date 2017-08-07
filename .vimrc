@@ -10,6 +10,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'benjifisher/matchit.zip'
 Plug 'tpope/vim-surround'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'TPope/vim-repeat'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
