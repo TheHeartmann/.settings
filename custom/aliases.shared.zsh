@@ -17,6 +17,7 @@ alias newrepoonline='github_createrepo $1 $2 $3'
 alias delrepo='github_deleterepo $1 $2'
 # user, token
 alias repos='github_listrepos $1 $2'
+alias clone='github_clone_repo $1 $2'
 
 #take all uncommitted and un-staged changes currently in the working directory and add them to the previous commit, amending it before pushing the change up
 alias caa="git commit -a --amend -C HEAD"
