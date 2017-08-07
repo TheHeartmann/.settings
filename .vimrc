@@ -9,6 +9,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'tpope/vim-unimpaired'
 Plug 'benjifisher/matchit.zip'
 Plug 'tpope/vim-surround'
+Plug 'kien/rainbow_parentheses.vim'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
