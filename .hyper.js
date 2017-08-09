@@ -122,7 +122,7 @@ module.exports = {
       hasShadow: true,
       hideDock: true,
       hideOnBlur: false,
-      hotkeys: ['Alt+Space'],
+      hotkeys: ['Ctrl+Alt+Space'],
       position: 'right',
       primaryDisplay: false,
       resizable: true,

@@ -1,7 +1,3 @@
-#source tmuxinator
-#source ./tmuxinator.zsh
-
-# because for some reason, sourcing wasn't working
 _tmuxinator() {
   local commands projects
   commands=(${(f)"$(tmuxinator commands zsh)"})
@@ -31,8 +27,3 @@ alias mux="tmuxinator"
 # sh-basic-offset: 2
 # End:
 # vim: ft=zsh sw=2 ts=2 et
-
-for file in ${0:h}/**/(aliases|functions).*.zsh
-do
-    source $file
-done
