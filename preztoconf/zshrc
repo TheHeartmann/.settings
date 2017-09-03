@@ -1,0 +1,45 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# set vim as default text-editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Path to your oh-my-zsh installation.
+case $OSTYPE in
+darwin*)
+export ZSH=/Users/Thomas/.oh-my-zsh
+export PATH="/opt/local/bin:/opt/local/sbin:/Users/Thomas/anaconda3/bin:$(yarn global bin):$PATH:/usr/local/lib/node_modules/flow-bin"
+;;
+linux*)
+export ZSH=/home/thomas//.oh-my-zsh
+export TERM="xterm-256color"
+;; esac
+
+expand-or-complete-with-dots() {      # This bunch of code displays red dots when autocompleting
+  echo -n "\e[31m......\e[0m"         # a command with the tab key, "Oh-my-zsh"-style.
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+# Customize to your needs...
+
+# disable control flow commands to allow for more mappings (Ctrl+Q, Ctrl+S)
+# disables Ctrl+Q
+stty -ixon
+
+# disables Ctrl+S
+stty -ixoff
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

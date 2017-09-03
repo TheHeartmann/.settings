@@ -1,0 +1,169 @@
+#
+# A two-line, Powerline-inspired theme that displays contextual information.
+#
+# Heavily based on the paradox theme, but updated based on the powerlevel 9k theme for oh-my-zsh
+#
+# This theme requires a patched Powerline font, get them from
+# https://github.com/Lokaltog/powerline-fonts.
+#
+# Authors:
+#   Isaac Wolkerstorfer <i@agnoster.net>
+#   Jeff Sandberg <paradox460@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   Patrick Bos <egpbos@gmail.com>
+#   Thomas Hartmann <thomas.o.hartmann@gmail.com>
+#
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+# Define variables.
+_prompt_thomas_current_bg='NONE'
+_prompt_thomas_segment_separator=''
+_prompt_thomas_start_time=$SECONDS
+
+function prompt_thomas_start_segment {
+  local bg fg
+  [[ -n "$1" ]] && bg="%K{$1}" || bg="%k"
+  [[ -n "$2" ]] && fg="%F{$2}" || fg="%f"
+  if [[ "$_prompt_thomas_current_bg" != 'NONE' && "$1" != "$_prompt_thomas_current_bg" ]]; then
+    print -n " $bg%F{$_prompt_thomas_current_bg}$_prompt_thomas_segment_separator$fg "
+  else
+    print -n "$bg$fg "
+  fi
+  _prompt_thomas_current_bg="$1"
+  [[ -n "$3" ]] && print -n "$3"
+}
+
+function prompt_thomas_end_segment {
+  if [[ -n "$_prompt_thomas_current_bg" ]]; then
+    print -n " %k%F{$_prompt_thomas_current_bg}$_prompt_thomas_segment_separator"
+  else
+    print -n "%k"
+  fi
+  print -n "%f"
+  _prompt_thomas_current_bg=''
+}
+
+function prompt_thomas_build_prompt {
+#   prompt_thomas_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{blue}%n%F{red}@%F{green}%m%f'
+  prompt_thomas_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%D{%H:%M:%S}%f'
+  prompt_thomas_start_segment blue black '$_prompt_thomas_pwd'
+
+  if [[ -n "$git_info" ]]; then
+#   make second half of prompt green if clean, yellow if dirty
+    if [[ -n "${(e)git_info[clean]}" ]]
+    then
+        bgcolor="green"
+    else
+        bgcolor="yellow"
+    fi
+    prompt_thomas_start_segment $bgcolor black '${(e)git_info[ref]}${(e)git_info[status]}'
+  fi
+
+  if [[ -n "$python_info" ]]; then
+    prompt_thomas_start_segment white black '${(e)python_info[virtualenv]}'
+  fi
+
+  prompt_thomas_end_segment
+}
+
+prompt_thomas_print_elapsed_time() {
+  local end_time=$(( SECONDS - _prompt_thomas_start_time ))
+  local hours minutes seconds remainder
+
+  if (( end_time >= 3600 )); then
+    hours=$(( end_time / 3600 ))
+    remainder=$(( end_time % 3600 ))
+    minutes=$(( remainder / 60 ))
+    seconds=$(( remainder % 60 ))
+    print -P "%B%F{red}>>> elapsed time ${hours}h${minutes}m${seconds}s%b"
+  elif (( end_time >= 60 )); then
+    minutes=$(( end_time / 60 ))
+    seconds=$(( end_time % 60 ))
+    print -P "%B%F{yellow}>>> elapsed time ${minutes}m${seconds}s%b"
+  elif (( end_time > 10 )); then
+    print -P "%B%F{green}>>> elapsed time ${end_time}s%b"
+  fi
+}
+
+function prompt_thomas_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Format PWD.
+  _prompt_thomas_pwd=$(promptpwd)
+
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+
+  # Get Python environment information.
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+
+  # Calculate and print the elapsed time.
+  prompt_thomas_print_elapsed_time
+}
+
+function prompt_thomas_preexec {
+  _prompt_thomas_start_time="$SECONDS"
+}
+
+function prompt_thomas_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook preexec prompt_thomas_preexec
+  add-zsh-hook precmd prompt_thomas_precmd
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{1}❯%F{3}❯%F{2}❯%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format '%F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}❮%f%b'
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format ' ⦿ %s' # options ↯ ⦿ ⁝
+  zstyle ':prezto:module:git:info:added' format '  %a'
+  zstyle ':prezto:module:git:info:ahead' format '  %A'
+  zstyle ':prezto:module:git:info:behind' format '  %B'
+  zstyle ':prezto:module:git:info:branch' format ' %b'
+  zstyle ':prezto:module:git:info:commit' format '  %.7c' #options   ➦ ↯ ⦿ ⦾
+  zstyle ':prezto:module:git:info:deleted' format ' ✖ %d'
+  zstyle ':prezto:module:git:info:dirty' format ' ⁝ %D'
+  zstyle ':prezto:module:git:info:modified' format ' ✱ %m'
+  zstyle ':prezto:module:git:info:position' format '%p'
+  zstyle ':prezto:module:git:info:renamed' format ' ➙ %r'
+  zstyle ':prezto:module:git:info:stashed' format ' ( %S)'
+  zstyle ':prezto:module:git:info:unmerged' format ' || %U' # ∇ ═
+  zstyle ':prezto:module:git:info:untracked' format ' ? %u'
+  zstyle ':prezto:module:git:info:clean' format ' true'
+  zstyle ':prezto:module:git:info:keys' format \
+    'ref' '$(coalesce "%b" "%p" "%c")' \
+    'status' '%c%s%D%A%B%S%a%d%m%r%U%u' \
+    'clean' '%C'
+
+  # %v - virtualenv name.
+  zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
+
+  # Define prompts.
+  PROMPT='
+%F{blue}[ %F{green}%D{%Y年 %m月 %d日 }%F{blue}]%f
+${(e)$(prompt_thomas_build_prompt)}
+${editor_info[keymap]} '
+
+#   RPROMPT='%F{blue}[%F{green}%D{%H:%M:%S  %Y年 %m月 %d日 }%F{blue}]%f'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_thomas_setup "$@"
