@@ -2,27 +2,32 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'benjifisher/matchit.zip'
 Plug 'blueyed/vim-diminactive'
+Plug 'bps/vim-textobj-python'
 Plug 'bronson/vim-visual-star-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'jiangmiao/auto-pairs'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'glts/vim-textobj-comment'
 Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
 Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-user'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'mileszs/ack.vim'
 Plug 'mtth/cursorcross.vim'
 Plug 'myint/syntastic-extras'
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'schickling/vim-bufonly'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'thinca/vim-textobj-function-javascript'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/tpope-vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -35,9 +40,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-scripts/a.vim'
+" Plug 'vim-scripts/a.vim' hello
+Plug 'wincent/command-t'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+Plug 'easymotion/vim-easymotion'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -76,6 +83,9 @@ set hidden " set hidden to allow switching from buffers with unsaved changes
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+" remap the leader key
+let mapleader=" "
 
 " activate filetype plugins, allowing for language specific configs
 filetype plugin on
@@ -121,6 +131,10 @@ let g:syntastic_auto_jump = 3 " jump tp errors if found in file
 let g:airline#extensions#syntastic#stl_format_err = 1
 let g:airline#extensions#syntastic#stl_format_warn = 1
 
+let g:syntastic_error_symbol = '✗✗'
+let g:syntastic_style_error_symbol = '✠✠'
+let g:syntastic_warning_symbol = '∆∆'
+let g:syntastic_style_warning_symbol = '≈≈'
 " for using YouCompleteMe with Syntastic, but using
 " Syntastic's checkers for C, C++, Objective-C and Objective-C++
 " (c, cpp, objc, objcpp)
@@ -132,11 +146,11 @@ let g:syntastic_gitcommit_checkers = ['language_check']
 
 " Omnisharp
 let g:OmniSharp_selector_ui = 'ctrlp'
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+let g:syntastic_cs_checkers = ['code_checker']
 " from docs: don't autoselect first item in omnicomplete, show if
 " only one item (for preview)
 " remove preview if you don't want to see any documentation
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone ",preview
 augroup omnisharp_commands
 	autocmd!
 
@@ -169,6 +183,8 @@ augroup omnisharp_commands
 	autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
 	"navigate down by method/property/field
 	autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+    " set local omnifunc to C#
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 augroup END
 
@@ -202,7 +218,9 @@ nnoremap <leader>sp :OmniSharpStopServer<cr>
 nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 
 " Enable snippet completion, requires completeopt-=preview
-let g:OmniSharp_want_snippet=1
+let g:OmniSharp_want_snippet = 1
+let g:OmniSharp_server_type = 'roslyn'
+
 
 
 " tagbar
@@ -216,3 +234,8 @@ set encoding=utf-8
 
 " tagbar config
 " let g:tagbar_ctags_bin = 'opt/local/bin/ctags'
+
+" don't move cursor back one space when exiting insert mode
+autocmd InsertEnter * let CursorColumnI = col('.')
+autocmd CursorMovedI * let CursorColumnI = col('.')
+autocmd InsertLeave * if col('.') != CursorColumnI | call cursor(0, col('.')+1) | endif

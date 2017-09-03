@@ -9,6 +9,7 @@ alias gf="git fix"
 alias stash="git stash"
 alias merge="git merge --no-ff"
 alias update="git update"
+alias tag="git tag -a"
 
 # name of repo, private, user
 alias newrepo='github_create_and_clone $1 $2 $3'
@@ -40,7 +41,7 @@ alias py="python"
 
 # misc
 alias lsa="ls -lah"
-alias rbo="rm -rf bin  obj" #removes bin and obj folders. Useful for cleaning a VS project
+alias rbo="rm -rf bin obj" #removes bin and obj folders. Useful for cleaning a VS project
 alias emoty="empty" #because I tend to misspell things :/
 alias pd="pandoc"
 alias mellon="alohomora" # speak friend and enter
@@ -49,6 +50,7 @@ alias go="google"
 # dirs
 alias md='mkdir -p'
 alias rd="rmdir"
+alias -- -="cd -"
 
 # settings etc
 alias conf="code ~/.settings/"

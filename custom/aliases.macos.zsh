@@ -35,5 +35,8 @@ alias desk="cd ~/Desktop/ && ls -1"
 
 alias @="open"
 
+alias dl="diskutil list"
+alias disks="diskutil list" #double aliased in case dl gets hijacked
+
 ;; esac
 

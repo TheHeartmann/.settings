@@ -84,5 +84,7 @@ function bt()
     fi
 }
 
+function eject() { diskutil eject /dev/disk${1:-1} }
+
 ;; esac
 

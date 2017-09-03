@@ -151,8 +151,7 @@
   # $2: the remote to update from (optional, defaults to origin)
   # update  "!f() { git fetch "${2-origin}" --prune; git merge --ff-only "${2-origin}"/$1 || git rebase --preserve-merges "${2-origin}"/$1; }; f"
   update = "!f() { git fetch "@{u}" --prune; git merge --ff-only "@{u}" || git rebase --preserve-merges "@{u}"; }; f"
-  tidy = "rebase -i "@{u}""
-
+  tidy = "!f() { if [ $# -eq 0 ]; then REBASE_TARGET="@{u}"; elif [ ${#1} -ge 4 ]; then REBASE_TARGET=$1; else REBASE_TARGET="head~$1"; fi; git rebase -i $REBASE_TARGET; }; f"
   rename = git branch -m
 
 # [credential]

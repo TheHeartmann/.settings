@@ -14,7 +14,9 @@ function kill() {
 }
 
 # unlocking
-function alohomora() { sudo chmod -R ${2:-700} ${1:-./*}; }
+function alohomora() { sudo chmod -R ${2:-777} ${1:-./**/*}; }
+# locking
+function colloportus() { alohomora ${1:-./**/*}  ${2:-000}; }
 
 # git commit
 function com() {
@@ -36,4 +38,18 @@ function google()
 function take() {
   mkdir -p $1
   cd $1
+}
+
+function tidy ()
+{
+    if [ $# -eq 0 ]
+    then
+        REBASE_TARGET="@{u}"
+    elif [ ${#1} -ge 4 ]
+    then
+        REBASE_TARGET=$1
+    else
+        REBASE_TARGET="HEAD~$1"
+    fi
+    git rebase -i $REBASE_TARGET
 }
