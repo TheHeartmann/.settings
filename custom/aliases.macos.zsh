@@ -23,18 +23,19 @@ alias vi="vim" # to get the good kind of vim
 
 # Westerdals navigation
 # alias w1="cd ~/MEGA/Westerdals/Spillprogrammering/2015–2016 && ls -1d */"
-alias w1="~/MEGA/Westerdals/Spillprogrammering/2015–2016"
+alias -g w1="~/MEGA/Westerdals/Spillprogrammering/2015–2016"
 # alias w2="cd ~/MEGA/Westerdals/Spillprogrammering/2016–2017 && ls -1d */"
-alias w2="~/MEGA/Westerdals/Spillprogrammering/2016–2017"
+alias -g w2="~/MEGA/Westerdals/Spillprogrammering/2016–2017"
 # alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017-2018 && ls -1d */"
-alias w3="~/MEGA/Westerdals/Spillprogrammering/2017-2018"
+alias -g w3="~/MEGA/Westerdals/Spillprogrammering/2017-2018"
 
 # Runestone navigation
 alias rune="cd ~/Runestone && ls -1d */"
 alias remote="cd ~/Runestone/runestone.xlayer.remoteexpert/Remote_Expert && ls -1d */"
 
 # general navigation
-alias desk="cd ~/Desktop/ && ls -1"
+# alias desk="cd ~/Desktop/ && ls -1"
+alias -g desk="~/Desktop/"
 
 alias @="open"
 
