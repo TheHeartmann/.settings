@@ -126,9 +126,6 @@
   todo = grep -i -n -e TODO -e FIXME -e NOTE
 
   # TH shortcuts
-  #typos
-  oush = push
-  statys = status
   #utility
   fix = "!f(){ standard --fix; git gud;}; f"
   fs = "!f(){ git fetch --prune; git st;}; f"
@@ -156,4 +153,4 @@
 
 # [credential]
   # helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
- diffc = "diff --cached"
+  diffc = "diff --cached"
