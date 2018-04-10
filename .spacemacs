@@ -59,8 +59,9 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      atom-one-dark-theme
                                       all-the-icons
+                                      atom-one-dark-theme
+                                      js-format
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -343,7 +344,7 @@ you should place your code here."
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   (evil-define-key 'normal global-map (kbd "C-<tab>") 'next-buffer)
   (evil-define-key 'normal global-map (kbd "C-S-<tab>") 'previous-buffer)
-  (evil-define-key 'normal global-map (kbd "gd") 'evil-goto-definition)
+  ;; (evil-define-key 'normal global-map (kbd "gd") 'evil-goto-definition)
   (setq-default evil-escape-key-sequence "+]")
   (setq case-fold-search nil)
 
@@ -389,6 +390,8 @@ you should place your code here."
   ;; elm-lang
   (setq elm-format-on-save t)
 
+  ;; javascript js
+  (setq js2-strict-missing-semi-warning nil)
 
 ;;; Fira code
   ;; This works when using emacs --daemon + emacsclient
