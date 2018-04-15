@@ -103,6 +103,14 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+" " Remapping for line wrapping
+" noremap  <buffer> <silent> k gk
+" noremap  <buffer> <silent> j gj
+
+" " to make dj still delete two lines
+" onoremap <silent> j gj
+" onoremap <silent> k gk
+
 " Remapping of & to && for more consistent substitute output on repeats
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>

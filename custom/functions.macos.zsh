@@ -9,6 +9,14 @@ function code () {
         open -a Visual\ Studio\ Code\ -\ Insiders "$@";
 }
 
+function st () {
+    if [ $# -gt 0 ];
+        then
+            touch "$@";
+    fi
+        open -a Sublime\ Text "$@";
+}
+
 function word () {
     touch "$@";
     open -a Microsoft\ Word "$@";

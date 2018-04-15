@@ -29,10 +29,6 @@ alias -g w2="~/MEGA/Westerdals/Spillprogrammering/2016–2017"
 # alias w3="cd ~/MEGA/Westerdals/Spillprogrammering/2017-2018 && ls -1d */"
 alias -g w3="~/MEGA/Westerdals/Spillprogrammering/2017-2018"
 
-# Runestone navigation
-alias rune="cd ~/Runestone && ls -1d */"
-alias remote="cd ~/Runestone/runestone.xlayer.remoteexpert/Remote_Expert && ls -1d */"
-
 # general navigation
 # alias desk="cd ~/Desktop/ && ls -1"
 alias -g desk="~/Desktop/"

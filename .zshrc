@@ -1,22 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# set vim as default text-editor
+#larc set vim as default text-editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-# Path to your oh-my-zsh installation.
-case $OSTYPE in
-darwin*)
-export ZSH=/Users/Thomas/.oh-my-zsh
-export PATH="/Users/Thomas/anaconda3/bin:$PATH"
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-export PATH="$PATH:/usr/local/lib/node_modules/flow-bin"
-;;
-linux*)
-export ZSH=/home/thomas//.oh-my-zsh
-export TERM="xterm-256color"
-;; esac
 
 #theming
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
