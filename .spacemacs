@@ -320,10 +320,42 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  ;; company-quickhelp
-  (setq auto-completion-enable-help-tooltip t)
+  (setq vc-follow-symlinks t
 
-  (setq vc-follow-symlinks t)
+    ;; whitespace
+    whitespace-style '(face spaces tabs newline indentation space-mark tab-mark)
+
+    ;; company
+    company-flx-limit 50
+    company-idle-delay 0
+    company-minimum-prefix-length 1
+    company-selection-wrap-around t
+
+    ;; auto-completion
+    tab-always-indent t
+    auto-completion-return-key-behavior nil
+    auto-completion-tab-key-behavior 'complete
+    auto-completion-enable-snippets-in-popup t
+    auto-completion-enable-help-tooltip t
+    auto-completion-enable-sort-by-usage t
+
+    ;; neotree
+    neo-confirm-create-file 'off-p
+    neo-confirm-create-directory 'off-p
+    neo-confirm-delete-directory-recursively 'off-p
+    neo-confirm-delete-file 'off-p
+    neo-confirm-kill-buffers-for-files-in-directory 'off-p
+    neo-theme (if (display-graphic-p) 'icons 'arrow)
+
+    ;; elm-lang
+    elm-format-on-save t
+
+    ;; javascript js
+    js2-strict-missing-semi-warning nil
+    js-indent-level 2
+
+    ;; rust-lang
+    rust-format-on-save t)
 
   ;; editorconfig
   (editorconfig-mode t)
@@ -336,7 +368,6 @@ you should place your code here."
 
   ;; whitespace
   (spacemacs/toggle-whitespace-globally-on)
-  (setq whitespace-style '(face spaces tabs newline indentation space-mark tab-mark))
   ;; (setq buffer-display-table)
 
   ;; text objects
@@ -377,41 +408,11 @@ you should place your code here."
     (define-key company-active-map (kbd "C-p") 'company-select-previous))
     ;; (define-key company-quickhelp-mode-map (kbd "C-n") 'company-select-next)
     ;; (define-key company-quickhelp-mode-map (kbd "C-p") 'company-select-previous))
-  (setq company-flx-limit 50
-        company-idle-delay 0
-        company-minimum-prefix-length 1
-        company-selection-wrap-around t)
 
   (with-eval-after-load 'helm
     (dolist (keymap (list helm-find-files-map helm-read-file-map))
       (define-key keymap (kbd "C-w") 'helm-find-files-up-one-level)
       (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)))
-
-  ;; auto-completion
-  (setq tab-always-indent t
-        auto-completion-return-key-behavior nil
-        auto-completion-tab-key-behavior 'complete
-        auto-completion-enable-snippets-in-popup t
-        auto-completion-enable-help-tooltip t
-        auto-completion-enable-sort-by-usage t)
-
-  ;; neotree
-  (setq neo-confirm-create-file 'off-p
-        neo-confirm-create-directory 'off-p
-        neo-confirm-delete-directory-recursively 'off-p
-        neo-confirm-delete-file 'off-p
-        neo-confirm-kill-buffers-for-files-in-directory 'off-p
-        neo-theme (if (display-graphic-p) 'icons 'arrow))
-
-  ;; elm-lang
-  (setq elm-format-on-save t)
-
-  ;; javascript js
-  (setq js2-strict-missing-semi-warning nil
-        js-indent-level 2)
-
-  ;; rust-lang
-  (setq rust-format-on-save t)
 
 ;;; Fira code
   ;; This works when using emacs --daemon + emacsclient
