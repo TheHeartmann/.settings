@@ -7,77 +7,77 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
-   ;; Lazy installation of layers (i.e. layers are installed only when a file
-   ;; with a supported type is opened). Possible values are `all', `unused'
-   ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
-   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
-   ;; lazy install any layer that support lazy installation even the layers
-   ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
-   ;; installation feature and you have to explicitly list a layer in the
-   ;; variable `dotspacemacs-configuration-layers' to install it.
-   ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'unused
-   ;; If non-nil then Spacemacs will ask for confirmation before installing
-   ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation t
-   ;; If non-nil layers with lazy install support are lazy installed.
-   ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers
-   '(
-     javascript
-     html
-     rust
-     common-lisp
-     elm
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     helm
-     auto-completion
-     ;; better-defaults
-     emacs-lisp
-     git
-     markdown
-     org
-     ;; (shell :variables
-     ;;        shell-default-width 80
-     ;;        shell-default-position 'right)
-     spell-checking
-     syntax-checking
-     version-control
-     )
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages, then consider creating a layer. You can also put the
-   ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(all-the-icons
-                                      atom-one-dark-theme
-                                      company-flx
-                                      editorconfig
-                                      gitter
-                                      js-format
-                                      p4)
-   ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
-   ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(vi-tilde-fringe)
-   ;; Defines the behaviour of Spacemacs when installing packages.
-   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
-   ;; `used-only' installs only explicitly used packages and uninstall any
-   ;; unused packages as well as their unused dependencies.
-   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
-   ;; them if they become unused. `all' installs *all* packages supported by
-   ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+    ;; Base distribution to use. This is a layer contained in the directory
+    ;; `+distribution'. For now available distributions are `spacemacs-base'
+    ;; or `spacemacs'. (default 'spacemacs)
+    dotspacemacs-distribution 'spacemacs
+    ;; Lazy installation of layers (i.e. layers are installed only when a file
+    ;; with a supported type is opened). Possible values are `all', `unused'
+    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
+    ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
+    ;; lazy install any layer that support lazy installation even the layers
+    ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
+    ;; installation feature and you have to explicitly list a layer in the
+    ;; variable `dotspacemacs-configuration-layers' to install it.
+    ;; (default 'unused)
+    dotspacemacs-enable-lazy-installation 'unused
+    ;; If non-nil then Spacemacs will ask for confirmation before installing
+    ;; a layer lazily. (default t)
+    dotspacemacs-ask-for-lazy-installation t
+    ;; If non-nil layers with lazy install support are lazy installed.
+    ;; List of additional paths where to look for configuration layers.
+    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+    dotspacemacs-configuration-layer-path '()
+    ;; List of configuration layers to load.
+    dotspacemacs-configuration-layers
+    '(
+       javascript
+       html
+       rust
+       common-lisp
+       elm
+       ;; ----------------------------------------------------------------
+       ;; Example of useful layers you may want to use right away.
+       ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+       ;; <M-m f e R> (Emacs style) to install them.
+       ;; ----------------------------------------------------------------
+       helm
+       auto-completion
+       ;; better-defaults
+       emacs-lisp
+       git
+       markdown
+       org
+       ;; (shell :variables
+       ;;        shell-default-width 80
+       ;;        shell-default-position 'right)
+       spell-checking
+       syntax-checking
+       version-control
+       )
+    ;; List of additional packages that will be installed without being
+    ;; wrapped in a layer. If you need some configuration for these
+    ;; packages, then consider creating a layer. You can also put the
+    ;; configuration in `dotspacemacs/user-config'.
+    dotspacemacs-additional-packages '(all-the-icons
+                                        atom-one-dark-theme
+                                        company-flx
+                                        editorconfig
+                                        gitter
+                                        js-format
+                                        p4)
+    ;; A list of packages that cannot be updated.
+    dotspacemacs-frozen-packages '()
+    ;; A list of packages that will not be installed and loaded.
+    dotspacemacs-excluded-packages '(vi-tilde-fringe)
+    ;; Defines the behaviour of Spacemacs when installing packages.
+    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
+    ;; `used-only' installs only explicitly used packages and uninstall any
+    ;; unused packages as well as their unused dependencies.
+    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
+    ;; them if they become unused. `all' installs *all* packages supported by
+    ;; Spacemacs and never uninstall them. (default is `used-only')
+    dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -330,6 +330,7 @@ you should place your code here."
     company-idle-delay 0
     company-minimum-prefix-length 1
     company-selection-wrap-around t
+    company-tooltip-align-annotations t
 
     ;; auto-completion
     tab-always-indent t
@@ -349,6 +350,8 @@ you should place your code here."
 
     ;; elm-lang
     elm-format-on-save t
+    elm-tags-on-save t
+    elm-sort-imports-on-save t
 
     ;; javascript js
     js2-strict-missing-semi-warning nil
@@ -360,6 +363,8 @@ you should place your code here."
   ;; editorconfig
   (editorconfig-mode t)
 
+  ;; (add-to-list 'company-backends 'company-elm)
+
   ;; evil surround
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
@@ -368,7 +373,6 @@ you should place your code here."
 
   ;; whitespace
   (spacemacs/toggle-whitespace-globally-on)
-  ;; (setq buffer-display-table)
 
   ;; text objects
   (defmacro define-and-bind-text-object (key start-regex end-regex)
@@ -415,137 +419,41 @@ you should place your code here."
       (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)))
 
 ;;; Fira code
-  ;; This works when using emacs --daemon + emacsclient
-  (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
-  ;; This works when using emacs without server/client
-  (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
-  ;; I haven't found one statement that makes both of the above situations work, so I use both for now
+  (when (window-system)
+  (set-frame-font "Fira Code"))
+(let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+               (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+               (36 . ".\\(?:>\\)")
+               (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+               (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+               (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+               (48 . ".\\(?:x[a-zA-Z]\\)")
+               (58 . ".\\(?:::\\|[:=]\\)")
+               (59 . ".\\(?:;;\\|;\\)")
+               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+               (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+               (91 . ".\\(?:]\\)")
+               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+               (94 . ".\\(?:=\\)")
+               (119 . ".\\(?:ww\\)")
+               (123 . ".\\(?:-\\)")
+               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+               )
+             ))
+  (dolist (char-regexp alist)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
-  (defconst fira-code-font-lock-keywords-alist
-    (mapcar (lambda (regex-char-pair)
-              `(,(car regex-char-pair)
-                (0 (prog1 ()
-                     (compose-region (match-beginning 1)
-                                     (match-end 1)
-                                     ;; The first argument to concat is a string containing a literal tab
-                                     ,(concat "	" (list (decode-char 'ucs (cadr regex-char-pair)))))))))
-            '(("\\(www\\)"                   #Xe100)
-              ("[^/]\\(\\*\\*\\)[^/]"        #Xe101)
-              ("\\(\\*\\*\\*\\)"             #Xe102)
-              ("\\(\\*\\*/\\)"               #Xe103)
-              ("\\(\\*>\\)"                  #Xe104)
-              ("[^*]\\(\\*/\\)"              #Xe105)
-              ("\\(\\\\\\\\\\)"              #Xe106)
-              ("\\(\\\\\\\\\\\\\\)"          #Xe107)
-              ("\\({-\\)"                    #Xe108)
-              ;; ("\\(\\[\\]\\)"                #Xe109) ;; didn't like the look of this one, so I've commented it out.
-              ("\\(::\\)"                    #Xe10a)
-              ("\\(:::\\)"                   #Xe10b)
-              ("[^=]\\(:=\\)"                #Xe10c)
-              ("\\(!!\\)"                    #Xe10d)
-              ("\\(!=\\)"                    #Xe10e)
-              ("\\(!==\\)"                   #Xe10f)
-              ("\\(-}\\)"                    #Xe110)
-              ("\\(--\\)"                    #Xe111)
-              ("\\(---\\)"                   #Xe112)
-              ("\\(-->\\)"                   #Xe113)
-              ("[^-]\\(->\\)"                #Xe114)
-              ("\\(->>\\)"                   #Xe115)
-              ("\\(-<\\)"                    #Xe116)
-              ("\\(-<<\\)"                   #Xe117)
-              ("\\(-~\\)"                    #Xe118)
-              ("\\(#{\\)"                    #Xe119)
-              ("\\(#\\[\\)"                  #Xe11a)
-              ("\\(##\\)"                    #Xe11b)
-              ("\\(###\\)"                   #Xe11c)
-              ("\\(####\\)"                  #Xe11d)
-              ("\\(#(\\)"                    #Xe11e)
-              ("\\(#\\?\\)"                  #Xe11f)
-              ("\\(#_\\)"                    #Xe120)
-              ("\\(#_(\\)"                   #Xe121)
-              ("\\(\\.-\\)"                  #Xe122)
-              ("\\(\\.=\\)"                  #Xe123)
-              ("\\(\\.\\.\\)"                #Xe124)
-              ("\\(\\.\\.<\\)"               #Xe125)
-              ("\\(\\.\\.\\.\\)"             #Xe126)
-              ("\\(\\?=\\)"                  #Xe127)
-              ("\\(\\?\\?\\)"                #Xe128)
-              ("\\(;;\\)"                    #Xe129)
-              ("\\(/\\*\\)"                  #Xe12a)
-              ("\\(/\\*\\*\\)"               #Xe12b)
-              ("\\(/=\\)"                    #Xe12c)
-              ("\\(/==\\)"                   #Xe12d)
-              ("\\(/>\\)"                    #Xe12e)
-              ("\\(//\\)"                    #Xe12f)
-              ("\\(///\\)"                   #Xe130)
-              ("\\(&&\\)"                    #Xe131)
-              ("\\(||\\)"                    #Xe132)
-              ("\\(||=\\)"                   #Xe133)
-              ("[^|]\\(|=\\)"                #Xe134)
-              ("\\(|>\\)"                    #Xe135)
-              ("\\(\\^=\\)"                  #Xe136)
-              ("\\(\\$>\\)"                  #Xe137)
-              ("\\(\\+\\+\\)"                #Xe138)
-              ("\\(\\+\\+\\+\\)"             #Xe139)
-              ("\\(\\+>\\)"                  #Xe13a)
-              ("\\(=:=\\)"                   #Xe13b)
-              ("[^!/]\\(==\\)[^>]"           #Xe13c)
-              ("\\(===\\)"                   #Xe13d)
-              ("\\(==>\\)"                   #Xe13e)
-              ("[^=]\\(=>\\)"                #Xe13f)
-              ("\\(=>>\\)"                   #Xe140)
-              ("\\(<=\\)"                    #Xe141)
-              ("\\(=<<\\)"                   #Xe142)
-              ("\\(=/=\\)"                   #Xe143)
-              ("\\(>-\\)"                    #Xe144)
-              ("\\(>=\\)"                    #Xe145)
-              ("\\(>=>\\)"                   #Xe146)
-              ("[^-=]\\(>>\\)"               #Xe147)
-              ("\\(>>-\\)"                   #Xe148)
-              ("\\(>>=\\)"                   #Xe149)
-              ("\\(>>>\\)"                   #Xe14a)
-              ("\\(<\\*\\)"                  #Xe14b)
-              ("\\(<\\*>\\)"                 #Xe14c)
-              ("\\(<|\\)"                    #Xe14d)
-              ("\\(<|>\\)"                   #Xe14e)
-              ("\\(<\\$\\)"                  #Xe14f)
-              ("\\(<\\$>\\)"                 #Xe150)
-              ("\\(<!--\\)"                  #Xe151)
-              ("\\(<-\\)"                    #Xe152)
-              ("\\(<--\\)"                   #Xe153)
-              ("\\(<->\\)"                   #Xe154)
-              ("\\(<\\+\\)"                  #Xe155)
-              ("\\(<\\+>\\)"                 #Xe156)
-              ("\\(<=\\)"                    #Xe157)
-              ("\\(<==\\)"                   #Xe158)
-              ("\\(<=>\\)"                   #Xe159)
-              ("\\(<=<\\)"                   #Xe15a)
-              ("\\(<>\\)"                    #Xe15b)
-              ("[^-=]\\(<<\\)"               #Xe15c)
-              ("\\(<<-\\)"                   #Xe15d)
-              ("\\(<<=\\)"                   #Xe15e)
-              ("\\(<<<\\)"                   #Xe15f)
-              ("\\(<~\\)"                    #Xe160)
-              ("\\(<~~\\)"                   #Xe161)
-              ("\\(</\\)"                    #Xe162)
-              ("\\(</>\\)"                   #Xe163)
-              ("\\(~@\\)"                    #Xe164)
-              ("\\(~-\\)"                    #Xe165)
-              ("\\(~=\\)"                    #Xe166)
-              ("\\(~>\\)"                    #Xe167)
-              ("[^<]\\(~~\\)"                #Xe168)
-              ("\\(~~>\\)"                   #Xe169)
-              ("\\(%%\\)"                    #Xe16a)
-              ("[^:=]\\(:\\)[^:=]"           #Xe16c)
-              ("[^\\+<>]\\(\\+\\)[^\\+<>]"   #Xe16d)
-              ("[^\\*/<>]\\(\\*\\)[^\\*/<>]" #Xe16f))))
-
-  (defun add-fira-code-symbol-keywords ()
-    (font-lock-add-keywords nil fira-code-font-lock-keywords-alist))
-
-  (add-hook 'prog-mode-hook
-            #'add-fira-code-symbol-keywords))
-
+  (add-hook 'helm-major-mode-hook
+          (lambda ()
+            (setq auto-composition-mode nil))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -556,9 +464,9 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(evil-want-Y-yank-to-eol nil)
- '(package-selected-packages
-   (quote
-    (magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+  '(package-selected-packages
+     (quote
+       (zoom-window magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
