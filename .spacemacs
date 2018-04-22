@@ -392,6 +392,7 @@ you should place your code here."
   (define-and-bind-text-object "l" "^\\s-*" "\\s-*$")
   ;; create "ie"/"ae" (inside/around) entire buffer text objects:
   (define-and-bind-text-object "e" "\\`\\s-*" "\\s-*\\'")
+  (turn)
 
   (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
@@ -404,9 +405,9 @@ you should place your code here."
 
   (spacemacs/set-leader-keys
     "," 'ace-delete-window
-    "-" 'split-window-below
+    "-" 'split-window-below-and-focus
     "." 'ace-window
-    "\\" 'split-window-right
+    "\\" 'split-window-right-and-focus
     "gc" 'magit-commit
     "gd" 'magit-diff-popup
     "jt" 'avy-goto-char-timer
