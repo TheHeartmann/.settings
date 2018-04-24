@@ -378,8 +378,12 @@ you should place your code here."
   ;; theme
   (load-theme 'atom-one-dark t)
 
+
   ;; whitespace
   ;; (spacemacs/toggle-whitespace-globally-on)
+
+  ;; motions
+  (spacemacs/toggle-camel-case-motion-globally-on)
 
   ;; text objects
   (defmacro define-and-bind-text-object (key start-regex end-regex)
@@ -413,6 +417,7 @@ you should place your code here."
     "\\" 'split-window-right-and-focus
     "gc" 'magit-commit
     "gd" 'magit-diff-popup
+    "gp" 'magit-push
     "jt" 'avy-goto-char-timer
     "o" 'helm-projectile-find-file)
 
