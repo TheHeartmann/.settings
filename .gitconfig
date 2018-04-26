@@ -56,6 +56,7 @@
 
   # list modified files in last commit
   dl = "!git ll -1"
+  prev = "git diff-tree --no-commit-id --name-only -r"
   # diff last commit
   dlc = diff --cached HEAD^
   dr  = "!f() { git diff -w "$1"^.."$1"; }; f"
