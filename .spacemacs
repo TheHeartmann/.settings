@@ -7,56 +7,56 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-    ;; Base distribution to use. This is a layer contained in the directory
-    ;; `+distribution'. For now available distributions are `spacemacs-base'
-    ;; or `spacemacs'. (default 'spacemacs)
-    dotspacemacs-distribution 'spacemacs
-    ;; Lazy installation of layers (i.e. layers are installed only when a file
-    ;; with a supported type is opened). Possible values are `all', `unused'
-    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
-    ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
-    ;; lazy install any layer that support lazy installation even the layers
-    ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
-    ;; installation feature and you have to explicitly list a layer in the
-    ;; variable `dotspacemacs-configuration-layers' to install it.
-    ;; (default 'unused)
-    dotspacemacs-enable-lazy-installation 'unused
-    ;; If non-nil then Spacemacs will ask for confirmation before installing
-    ;; a layer lazily. (default t)
-    dotspacemacs-ask-for-lazy-installation t
-    ;; If non-nil layers with lazy install support are lazy installed.
-    ;; List of additional paths where to look for configuration layers.
-    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-    dotspacemacs-configuration-layer-path '()
-    ;; List of configuration layers to load.
-    dotspacemacs-configuration-layers
-    '(
+   ;; Base distribution to use. This is a layer contained in the directory
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
+   ;; Lazy installation of layers (i.e. layers are installed only when a file
+   ;; with a supported type is opened). Possible values are `all', `unused'
+   ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
+   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
+   ;; lazy install any layer that support lazy installation even the layers
+   ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
+   ;; installation feature and you have to explicitly list a layer in the
+   ;; variable `dotspacemacs-configuration-layers' to install it.
+   ;; (default 'unused)
+   dotspacemacs-enable-lazy-installation 'unused
+   ;; If non-nil then Spacemacs will ask for confirmation before installing
+   ;; a layer lazily. (default t)
+   dotspacemacs-ask-for-lazy-installation t
+   ;; If non-nil layers with lazy install support are lazy installed.
+   ;; List of additional paths where to look for configuration layers.
+   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+   dotspacemacs-configuration-layer-path '()
+   ;; List of configuration layers to load.
+   dotspacemacs-configuration-layers
+    '(yaml
        python
-       javascript
-       html
-       rust
-       common-lisp
-       elm
-       ;; ----------------------------------------------------------------
-       ;; Example of useful layers you may want to use right away.
-       ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-       ;; <M-m f e R> (Emacs style) to install them.
-       ;; ----------------------------------------------------------------
-       helm
-       auto-completion
-       ;; better-defaults
-       emacs-lisp
-       git
-       markdown
-       (org :variables org-want-todo-bindings t)
+     javascript
+     html
+     rust
+     common-lisp
+     elm
+     ;; ----------------------------------------------------------------
+     ;; Example of useful layers you may want to use right away.
+     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; <M-m f e R> (Emacs style) to install them.
+     ;; ----------------------------------------------------------------
+     helm
+     auto-completion
+     ;; better-defaults
+     emacs-lisp
+     git
+     markdown
+     (org :variables org-want-todo-bindings t)
 
-       ;; (shell :variables
-       ;;        shell-default-width 80
-       ;;        shell-default-position 'right)
-       ;; spell-checking
-       syntax-checking
-       version-control
-       )
+      ;; (shell :variables
+      ;;        shell-default-width 80
+      ;;        shell-default-position 'right)
+      ;; spell-checking
+      syntax-checking
+      version-control
+      )
     ;; List of additional packages that will be installed without being
     ;; wrapped in a layer. If you need some configuration for these
     ;; packages, then consider creating a layer. You can also put the
@@ -64,10 +64,12 @@ values."
     dotspacemacs-additional-packages '(all-the-icons
                                         atom-one-dark-theme
                                         company-flx
+                                        color-theme-sanityinc-tomorrow
                                         editorconfig
                                         gitter
                                         js-format
-                                        p4)
+                                        p4
+                                        zerodark-theme)
     ;; A list of packages that cannot be updated.
     dotspacemacs-frozen-packages '()
     ;; A list of packages that will not be installed and loaded.
@@ -139,8 +141,9 @@ values."
     ;; List of themes, the first of the list is loaded when spacemacs starts.
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
-    dotspacemacs-themes '(spacemacs-dark
-                           spacemacs-light)
+    dotspacemacs-themes '(atom-one-dark
+                           zerodark
+                           spacemacs-dark)
     ;; If non nil the cursor color matches the state color in GUI Emacs.
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -174,7 +177,7 @@ values."
     ;; works in the GUI. (default nil)
     dotspacemacs-distinguish-gui-tab nil
     ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
-    dotspacemacs-remap-Y-to-y$ nil
+    dotspacemacs-remap-Y-to-y$ t
     ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
     ;; there. (default t)
     dotspacemacs-retain-visual-state-on-shift t
@@ -272,7 +275,7 @@ values."
     ;;                       text-mode
     ;;   :size-limit-kb 1000)
     ;; (default nil)
-    dotspacemacs-line-numbers t
+    dotspacemacs-line-numbers '(:relative t)
     ;; Code folding method. Possible values are `evil' and `origami'.
     ;; (default 'evil)
     dotspacemacs-folding-method 'evil
@@ -336,7 +339,6 @@ you should place your code here."
 
     ;; helm
 
-
     ;; company
     company-flx-limit 50
     company-idle-delay 0
@@ -377,12 +379,10 @@ you should place your code here."
   (editorconfig-mode t)
 
   ;; evil
-  ;; '(evil-want-Y-yank-to-eol t)
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
-  ;; theme
-  (load-theme 'atom-one-dark t)
-
+  ;; skewer mode
+  (add-hook 'css-mode-hook 'skewer-reload-stylesheets-start-editing)
 
   ;; whitespace
   ;; (spacemacs/toggle-whitespace-globally-on)
@@ -392,8 +392,8 @@ you should place your code here."
 
   ;; text objects
   (defmacro define-and-bind-text-object (key start-regex end-regex)
-    (let ((inner-name (make-symbol "inner-name"))
-           (outer-name (make-symbol "outer-name")))
+    (let ((inner-name (make-symbol "inner-line"))
+           (outer-name (make-symbol "outer-line")))
       `(progn
          (evil-define-text-object ,inner-name (count &optional beg end type)
            (evil-select-paren ,start-regex ,end-regex beg end type count nil))
@@ -403,8 +403,6 @@ you should place your code here."
          (define-key evil-outer-text-objects-map ,key (quote ,outer-name)))))
   ;; create "il"/"al" (inside/around) line text objects:
   (define-and-bind-text-object "l" "^\\s-*" "\\s-*$")
-  ;; create "ie"/"ae" (inside/around) entire buffer text objects:
-  (define-and-bind-text-object "e" "\\`\\s-*" "\\s-*\\'")
 
   (evil-leader/set-key "/" 'spacemacs/helm-project-do-ag)
   (evil-define-key 'normal global-map (kbd "C-a") 'evil-numbers/inc-at-pt)
@@ -412,8 +410,30 @@ you should place your code here."
   (evil-define-key 'normal global-map (kbd "C-<tab>") 'next-buffer)
   (evil-define-key 'normal global-map (kbd "C-S-<tab>") 'previous-buffer)
   (evil-define-key 'insert global-map (kbd "C-h") 'evil-delete-backward-char)
+  (define-key evil-outer-text-objects-map "e" 'evil-inner-buffer)
+  (define-key evil-inner-text-objects-map "e" 'evil-inner-buffer)
   (setq-default evil-escape-key-sequence "+]")
   (setq case-fold-search nil)
+
+  (setq evil-v$-gets-eol nil)
+
+  ;; stop `v$' from selecting newlines
+  (evil-define-motion evil-end-of-line (count)
+    "Move the cursor to the end of the current line.
+If COUNT is given, move COUNT - 1 lines downward first."
+    :type inclusive
+    (move-end-of-line count)
+    (when evil-track-eol
+      (setq temporary-goal-column most-positive-fixnum
+        this-command 'next-line))
+    (unless (and (evil-visual-state-p) evil-v$-gets-eol)
+      (evil-adjust-cursor)
+      (when (eolp)
+        ;; prevent "c$" and "d$" from deleting blank lines
+        (setq evil-this-type 'exclusive))))
+
+  (with-eval-after-load 'evil
+    (setq evil-want-Y-yank-to-eol t))
 
   (spacemacs/set-leader-keys
     "," 'ace-delete-window
@@ -426,6 +446,13 @@ you should place your code here."
     "jt" 'avy-goto-char-timer
     "o" 'helm-projectile-find-file)
 
+  ;; css mode
+  (spacemacs/set-leader-keys-for-major-mode 'css-mode "i" 'impatient-mode)
+
+  ;;magit
+  (add-hook 'git-commit-mode-hook (lambda () (save-selected-window (magit-process))))
+
+  (global-company-mode)
   (with-eval-after-load 'company
     (company-flx-mode +1)
     (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
@@ -440,6 +467,17 @@ you should place your code here."
     (dolist (keymap (list helm-find-files-map helm-read-file-map))
       (define-key keymap (kbd "C-w") 'helm-find-files-up-one-level)
       (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)))
+
+  ;; Make C-/ expand yasnippet if available, else go into company
+  ;; Must unbind undo tree first
+  (with-eval-after-load 'undo-tree
+    (define-key undo-tree-map (kbd "C-/") nil))
+  (defun nir-yasnippet-expand-or-complete ()
+    (interactive)
+    (unless (call-interactively 'yas-expand) (call-interactively 'company-yasnippet)))
+  ;; Must bind in global map, else undo tree stops loading
+  (with-eval-after-load 'yasnippet
+    (define-key global-map (kbd "C-/") 'nir-yasnippet-expand-or-complete))
 
   ;; Fira code
   (when (window-system)
@@ -505,9 +543,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (super-save zoom-window magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    '(package-selected-packages
+         (quote
+             (skewer-reload-stylesheets yaml-mode zoom-window magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
