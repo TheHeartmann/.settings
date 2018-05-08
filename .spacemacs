@@ -340,8 +340,6 @@ you should place your code here."
     spacemacs-centered-buffer-mode-min-content-width 1200
     spacemacs-centered-buffer-mode-max-content-width 1200
 
-    ;; helm
-
     ;; company
     company-flx-limit 50
     company-idle-delay 0
@@ -435,9 +433,6 @@ If COUNT is given, move COUNT - 1 lines downward first."
         ;; prevent "c$" and "d$" from deleting blank lines
         (setq evil-this-type 'exclusive))))
 
-  (with-eval-after-load 'evil
-    (setq evil-want-Y-yank-to-eol t))
-
   (spacemacs/set-leader-keys
     "," 'ace-delete-window
     "-" 'split-window-below-and-focus
@@ -453,7 +448,7 @@ If COUNT is given, move COUNT - 1 lines downward first."
   (spacemacs/set-leader-keys-for-major-mode 'css-mode "i" 'impatient-mode)
 
   ;;magit
-  (add-hook 'git-commit-mode-hook (lambda () (save-selected-window (magit-process))))
+  ;; (add-hook 'git-commit-mode-hook (lambda () (save-selected-window (magit-process))))
 
   (global-company-mode)
   (with-eval-after-load 'company
