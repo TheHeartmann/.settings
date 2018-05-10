@@ -13,7 +13,7 @@ alias mail="open -a mail"
 alias word="open -a Microsoft\ Word"
 
 # misc
-alias gconf="code ~/.gitconfig"
+alias gconf="em ~/.gitconfig"
 alias reindex="sudo mdutil -i on /" #rebuild spotlight index
 alias empty="sudo rm -rf ~/.Trash/*" #deletes all objects in trash can
 alias emoty="empty" #because I tend to misspell things :/
@@ -39,4 +39,3 @@ alias dl="diskutil list"
 alias disks="diskutil list" #double aliased in case dl gets hijacked
 
 ;; esac
-

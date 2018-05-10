@@ -53,7 +53,7 @@ alias rd="rmdir"
 alias -- -="cd -"
 
 # settings etc
-alias conf="code ~/.settings/"
+alias conf="em ~/.settings/"
 alias sets="cd ~/.settings/ && l"
 alias sc="cd ~/.settings/custom && ls"
 

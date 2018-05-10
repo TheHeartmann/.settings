@@ -9,6 +9,17 @@ function code () {
         open -a Visual\ Studio\ Code\ -\ Insiders "$@";
 }
 
+function em() {
+    # Checks if there's a frame open
+    emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" 2> /dev/null | grep t &> /dev/null
+
+    if [ "$?" -eq "1" ]; then
+        emacsclient -a '' -nqc "$@" &> /dev/null
+    else
+        emacsclient -nq "$@" &> /dev/null
+    fi
+}
+
 function st () {
     if [ $# -gt 0 ];
         then
@@ -95,4 +106,3 @@ function bt()
 function eject() { diskutil eject /dev/disk${1:-1} }
 
 ;; esac
-
