@@ -18,7 +18,6 @@ export EDITOR="$VISUAL"
 case $OSTYPE in
 darwin*)
 export ZSH=/Users/Thomas/.oh-my-zsh
-export PATH="/opt/local/bin:/opt/local/sbin:/Users/Thomas/anaconda3/bin:$(yarn global bin):$PATH:/usr/local/lib/node_modules/flow-bin"
 ;;
 linux*)
 export ZSH=/home/thomas//.oh-my-zsh

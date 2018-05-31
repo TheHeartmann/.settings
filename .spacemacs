@@ -32,30 +32,32 @@ values."
    dotspacemacs-configuration-layers
     '(yaml
        python
-     javascript
-     html
-     rust
-     common-lisp
-     elm
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     helm
-     auto-completion
-     ;; better-defaults
-     emacs-lisp
-     git
-     markdown
-     (org :variables org-want-todo-bindings t)
+       javascript
+       html
+       rust
+       common-lisp
+       elm
+       ;; ----------------------------------------------------------------
+       ;; Example of useful layers you may want to use right away.
+       ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+       ;; <M-m f e R> (Emacs style) to install them.
+       ;; ----------------------------------------------------------------
+       helm
+       auto-completion
+       ;; better-defaults
+       emacs-lisp
+       git
+       markdown
+       (org :variables org-want-todo-bindings t)
 
-      ;; (shell :variables
-      ;;        shell-default-width 80
-      ;;        shell-default-position 'right)
-      ;; spell-checking
-      syntax-checking
-      version-control
+       ;; (shell :variables
+       ;;        shell-default-width 80
+       ;;        shell-default-position 'right)
+       ;; spell-checking
+       syntax-checking
+       version-control
+
+       chat
       )
     ;; List of additional packages that will be installed without being
     ;; wrapped in a layer. If you need some configuration for these
@@ -243,7 +245,7 @@ values."
     ;; If non nil the frame is maximized when Emacs starts up.
     ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
     ;; (default nil) (Emacs 24.4+ only)
-    dotspacemacs-maximized-at-startup nil
+    dotspacemacs-maximized-at-startup t
     ;; A value from the range (0..100), in increasing opacity, which describes
     ;; the transparency level of a frame when it's active or selected.
     ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -351,7 +353,7 @@ you should place your code here."
     ;; auto-completion
     tab-always-indent t
     auto-completion-return-key-behavior nil
-    auto-completion-tab-key-behavior 'complete
+    auto-completion-tab-key-behavior nil
     auto-completion-enable-snippets-in-popup t
     auto-completion-enable-help-tooltip t
     auto-completion-enable-sort-by-usage t
@@ -413,6 +415,8 @@ you should place your code here."
   (evil-define-key 'normal global-map (kbd "C-x") 'evil-numbers/dec-at-pt)
   (evil-define-key 'normal global-map (kbd "C-<tab>") 'next-buffer)
   (evil-define-key 'normal global-map (kbd "C-S-<tab>") 'previous-buffer)
+  (evil-define-key '(normal visual) global-map (kbd "j") 'evil-next-visual-line)
+  (evil-define-key '(normal visual) global-map (kbd "k") 'evil-previous-visual-line)
   (evil-define-key 'insert global-map (kbd "C-h") 'evil-delete-backward-char)
   (define-key evil-outer-text-objects-map "e" 'evil-inner-buffer)
   (define-key evil-inner-text-objects-map "e" 'evil-inner-buffer)

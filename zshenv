@@ -14,7 +14,7 @@ fi
 case $OSTYPE in
 darwin*)
 export ZSH=/Users/Thomas/.oh-my-zsh
-export PATH="/opt/local/bin:/opt/local/sbin:/Users/Thomas/anaconda3/bin:$(yarn global bin):$PATH:/usr/local/lib/node_modules/flow-bin"
+export PATH="/Users/Thomas/bin:$HOME/.cargo/bin:/opt/local/bin:/opt/local/sbin:/Users/Thomas/anaconda3/bin:$PATH:/usr/local/bin:/usr/local/lib/node_modules/flow-bin:$HOME/.rvm/bin"
 export P4PORT="perforce-osl.funcom.com:1666"
 export P4USER="thomasha"
 export P4CLIENT="thomasha_home"

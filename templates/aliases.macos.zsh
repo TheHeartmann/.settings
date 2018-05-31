@@ -1,20 +1,9 @@
 case $OSTYPE in darwin*)
 
 alias fb="firebase"
-alias ij="open -a IntelliJ\ IDEA\ Ultimate"
-alias ride="open -a Rider" #changed rd to ride because rd is short for rmdir
-alias ws="open -a WebStorm"
-alias ps="open -a PhpStorm"
-alias dg="open -a DataGrip"
-alias cl="open -a CLion"
-alias viv="open -a Vivaldi"
-alias ca="open -a Google\ Chrome\ Canary"
 alias mail="open -a mail"
-alias word="open -a Microsoft\ Word"
-alias ubu="open -a VirtualBox ~/VirtualBox\ VMs/Ubu/Ubu.vbox"
 
 # misc
-# alias zsh="code ~/.zshrc"
 alias conf="em ~/.gitconfig"
 alias reindex="sudo mdutil -i on /" #rebuild spotlight index
 alias empty="sudo rm -rf ~/.Trash/*" #deletes all objects in trash can
