@@ -84,6 +84,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
+
 " remap the leader key
 let mapleader=" "
 
