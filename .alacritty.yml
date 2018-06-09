@@ -43,20 +43,18 @@ font:
   normal:
     # family: 'DejaVu Sans Mono for Powerline'
     family: 'Dank Mono'
-    # Sadly, the below font does not support powerline :/
-    # family: 'ProFontIIx'
     # Style can be specified to pick a specific face.
     # style: Regular
 
   # The bold font face
   bold:
-    family: 'DejaVu Sans Mono for Powerline'
+    family: 'Dank Mono'
     # Style can be specified to pick a specific face.
     # style: Bold
 
   # The italic font face
   italic:
-    family: 'DejaVu Sans Mono for Powerline'
+    family: 'Dank Mono'
     # Style can be specified to pick a specific face.
     # style: Italic
 
@@ -90,7 +88,10 @@ render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+custom_cursor_colors: true
+cursor:
+    foreground: '0xFFCC00'
+    background: '0xfff00f'
 
 # Colors (One Dark)
 colors:
@@ -100,9 +101,8 @@ colors:
     foreground: '0xabb2bf'
 
   # Normal colors
-  normal:
-    black:   '0x1e2127'
-    red:     '0xe06c75'
+  black:
+      '0x1e2127'red:     '0xe06c75'
     green:   '0x98c379'
     yellow:  '0xd19a66'
     blue:    '0x61afef'
@@ -149,40 +149,41 @@ visual_bell:
   duration: 0
 
 # Background opacity
-background_opacity: 0.9
+background_opacity: 0.9:        #norma
+      
 
-# Key bindings
-#
-# Each binding is defined as an object with some properties. Most of the
-# properties are optional. All of the alphabetical keys should have a letter for
-# the `key` value such as `V`. Function keys are probably what you would expect
-# as well (F1, F2, ..). The number keys above the main keyboard are encoded as
-# `Key1`, `Key2`, etc. Keys on the number pad are encoded `Number1`, `Number2`,
-# etc.  These all match the glutin::VirtualKeyCode variants.
-#
-# Possible values for `mods`
-# `Command`, `Super` refer to the super/command/windows key
-# `Control` for the control key
-# `Shift` for the Shift key
-# `Alt` and `Option` refer to alt/option
-#
-# mods may be combined with a `|`. For example, requiring control and shift
-# looks like:
-#
-# mods: Control|Shift
-#
-# The parser is currently quite sensitive to whitespace and capitalization -
-# capitalization must match exactly, and piped items must not have whitespace
-# around them.
-#
-# Either an `action`, `chars`, or `command` field must be present.
-#   `action` must be one of `Paste`, `PasteSelection`, `Copy`, or `Quit`.
-#   `chars` writes the specified string every time that binding is activated.
-#     These should generally be escape sequences, but they can be configured to
-#     send arbitrary strings of bytes.
-#   `command` must be a map containing a `program` string, and `args` array of
-#     strings. For example:
-#     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
+      # Key bindings
+      #
+      # Each binding is defined as an object with some properties. Most of the
+      # properties are optional. All of the alphabetical keys should have a letter for
+      # the `key` value such as `V`. Function keys are probably what you would expect
+      # as well (F1, F2, ..). The number keys above the main keyboard are encoded as
+      # `Key1`, `Key2`, etc. Keys on the number pad are encoded `Number1`, `Number2`,
+      # etc.  These all match the glutin::VirtualKeyCode variants.
+      #
+      # Possible values for `mods`
+      # `Command`, `Super` refer to the super/command/windows key
+      # `Control` for the control key
+      # `Shift` for the Shift key
+      # `Alt` and `Option` refer to alt/option
+      #
+      # mods may be combined with a `|`. For example, requiring control and shift
+      # looks like:
+          #
+          # mods: Control|Shift
+          #
+          # The parser is currently quite sensitive to whitespace and capitalization -
+          # capitalization must match exactly, and piped items must not have whitespace
+          # around them.
+          #
+          # Either an `action`, `chars`, or `command` field must be present.
+          #   `action` must be one of `Paste`, `PasteSelection`, `Copy`, or `Quit`.
+          #   `chars` writes the specified string every time that binding is activated.
+          #     These should generally be escape sequences, but they can be configured to
+          #     send arbitrary strings of bytes.
+          #   `command` must be a map containing a `program` string, and `args` array of
+          #     strings. For example:
+              #     - { ... , command: { program: "alacritty", args: ["-e", "vttest"] } }
 key_bindings:
   - { key: V,        mods: Command, action: Paste                        }
   - { key: C,        mods: Command, action: Copy                         }
