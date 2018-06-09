@@ -7,36 +7,39 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
-   ;; Lazy installation of layers (i.e. layers are installed only when a file
-   ;; with a supported type is opened). Possible values are `all', `unused'
-   ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
-   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
-   ;; lazy install any layer that support lazy installation even the layers
-   ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
-   ;; installation feature and you have to explicitly list a layer in the
-   ;; variable `dotspacemacs-configuration-layers' to install it.
-   ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'unused
-   ;; If non-nil then Spacemacs will ask for confirmation before installing
-   ;; a layer lazily. (default t)
-   dotspacemacs-ask-for-lazy-installation t
-   ;; If non-nil layers with lazy install support are lazy installed.
-   ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
-   ;; List of configuration layers to load.
-   dotspacemacs-configuration-layers
-    '(yaml
+    ;; Base distribution to use. This is a layer contained in the directory
+    ;; `+distribution'. For now available distributions are `spacemacs-base'
+    ;; or `spacemacs'. (default 'spacemacs)
+    dotspacemacs-distribution 'spacemacs
+    ;; Lazy installation of layers (i.e. layers are installed only when a file
+    ;; with a supported type is opened). Possible values are `all', `unused'
+    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
+    ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
+    ;; lazy install any layer that support lazy installation even the layers
+    ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
+    ;; installation feature and you have to explicitly list a layer in the
+    ;; variable `dotspacemacs-configuration-layers' to install it.
+    ;; (default 'unused)
+    dotspacemacs-enable-lazy-installation 'unused
+    ;; If non-nil then Spacemacs will ask for confirmation before installing
+    ;; a layer lazily. (default t)
+    dotspacemacs-ask-for-lazy-installation t
+    ;; If non-nil layers with lazy install support are lazy installed.
+    ;; List of additional paths where to look for configuration layers.
+    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
+    dotspacemacs-configuration-layer-path '()
+    ;; List of configuration layers to load.
+    dotspacemacs-configuration-layers
+    '(vimscript
+       yaml
        python
        javascript
        html
        rust
        common-lisp
        elm
+       reason
+       ocaml
        ;; ----------------------------------------------------------------
        ;; Example of useful layers you may want to use right away.
        ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -56,9 +59,7 @@ values."
        ;; spell-checking
        syntax-checking
        version-control
-
-       chat
-      )
+       )
     ;; List of additional packages that will be installed without being
     ;; wrapped in a layer. If you need some configuration for these
     ;; packages, then consider creating a layer. You can also put the
@@ -70,6 +71,7 @@ values."
                                         editorconfig
                                         gitter
                                         js-format
+                                        lsp-rust
                                         p4
                                         zerodark-theme)
     ;; A list of packages that cannot be updated.
@@ -146,11 +148,13 @@ values."
     dotspacemacs-themes '(atom-one-dark
                            zerodark
                            spacemacs-dark)
+
+    dotspacemacs-mode-line-theme 'all-the-icons
     ;; If non nil the cursor color matches the state color in GUI Emacs.
     dotspacemacs-colorize-cursor-according-to-state t
     ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
     ;; quickly tweak the mode-line size to make separators look not too crappy.
-    dotspacemacs-default-font '("Fira Code Retina"
+    dotspacemacs-default-font '("Dank Mono"
                                  :size 18
                                  :weight normal
                                  :width normal
@@ -375,8 +379,12 @@ you should place your code here."
     js2-strict-missing-semi-warning nil
     js-indent-level 2
 
+    ;; mac-specific
+    mac-use-title-bar t
+
     ;; rust-lang
     rust-format-on-save t)
+
 
   ;; editorconfig
   (editorconfig-mode t)
@@ -386,9 +394,6 @@ you should place your code here."
 
   ;; skewer mode
   (add-hook 'css-mode-hook 'skewer-reload-stylesheets-start-editing)
-
-  ;; whitespace
-  ;; (spacemacs/toggle-whitespace-globally-on)
 
   ;; lines
   (global-visual-line-mode t)
@@ -456,7 +461,6 @@ If COUNT is given, move COUNT - 1 lines downward first."
 
   ;;magit
   ;; (add-hook 'git-commit-mode-hook (lambda () (save-selected-window (magit-process))))
-
   (global-company-mode)
   (with-eval-after-load 'company
     (company-flx-mode +1)
@@ -484,42 +488,50 @@ If COUNT is given, move COUNT - 1 lines downward first."
   (with-eval-after-load 'yasnippet
     (define-key global-map (kbd "C-/") 'nir-yasnippet-expand-or-complete))
 
-  ;; Fira code
-  (when (window-system)
-    (set-frame-font "Fira Code"))
-  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
-                  (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
-                  (36 . ".\\(?:>\\)")
-                  (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
-                  (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
-                  (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
-                  (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
-                  (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
-                  (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
-                  (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
-                  (48 . ".\\(?:x[a-zA-Z]\\)")
-                  (58 . ".\\(?:::\\|[:=]\\)")
-                  (59 . ".\\(?:;;\\|;\\)")
-                  (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
-                  (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
-                  (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
-                  (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
-                  (91 . ".\\(?:]\\)")
-                  (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
-                  (94 . ".\\(?:=\\)")
-                  (119 . ".\\(?:ww\\)")
-                  (123 . ".\\(?:-\\)")
-                  (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
-                  (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
-                  )
-          ))
-    (dolist (char-regexp alist)
-      (set-char-table-range composition-function-table (car char-regexp)
-        `([,(cdr char-regexp) 0 font-shape-gstring]))))
+  ;; ligatures
+  (mac-auto-operator-composition-mode)
 
-  (add-hook 'helm-major-mode-hook
-    (lambda ()
-      (setq auto-composition-mode nil))))
+  ;; add new file type associations
+  ;; (add-to-list 'auto-mode-alist '("\\.gd$" . python-mode))
+
+  ;; Fira code
+  ;; (when (window-system)
+  ;;   (set-frame-font "Fira Code"))
+  ;; (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+  ;;                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+  ;;                 (36 . ".\\(?:>\\)")
+  ;;                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+  ;;                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+  ;;                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+  ;;                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+  ;;                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+  ;;                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+  ;;                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+  ;;                 (48 . ".\\(?:x[a-zA-Z]\\)")
+  ;;                 (58 . ".\\(?:::\\|[:=]\\)")
+  ;;                 (59 . ".\\(?:;;\\|;\\)")
+  ;;                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+  ;;                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+  ;;                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+  ;;                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+  ;;                 (91 . ".\\(?:]\\)")
+  ;;                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+  ;;                 (94 . ".\\(?:=\\)")
+  ;;                 (119 . ".\\(?:ww\\)")
+  ;;                 (123 . ".\\(?:-\\)")
+  ;;                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+  ;;                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+  ;;                 )
+  ;;         ))
+  ;;   (dolist (char-regexp alist)
+  ;;     (set-char-table-range composition-function-table (car char-regexp)
+  ;;       `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+  ;; (add-hook 'helm-major-mode-hook
+  ;;   (lambda ()
+  ;;     (setq auto-composition-mode nil)))
+
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -548,9 +560,9 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (zerodark-theme yaml-mode color-theme-sanityinc-tomorrow zoom-window magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    '(package-selected-packages
+         (quote
+             (vimrc-mode helm-gtags ggtags dactyl-mode counsel-gtags zoom-window magit-p4 p4 company-flx editorconfig js-format gitter slime-company slime common-lisp-snippets web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode memoize all-the-icons company-quickhelp git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl company-web web-completion-data web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode xterm-color shell-pop multi-term mmm-mode markdown-toc markdown-mode gh-md flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip flycheck-elm flycheck eshell-z eshell-prompt-extras esh-help auto-dictionary helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet yasnippet ac-ispell auto-complete evil-avy atom-one-dark-theme toml-mode racer pos-tip cargo rust-mode elm-mode smeargle orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download magit-gitflow htmlize helm-gitignore gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit ghub with-editor ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
